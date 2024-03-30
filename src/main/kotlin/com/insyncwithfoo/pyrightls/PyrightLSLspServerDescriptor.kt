@@ -8,7 +8,7 @@ import java.nio.file.Path
 
 
 @Suppress("UnstableApiUsage")
-class PyrightLSLspServerDescriptor(
+internal class PyrightLSLspServerDescriptor(
     project: Project,
     private val executable: Path
 ) : ProjectWideLspServerDescriptor(project, PRESENTABLE_NAME) {

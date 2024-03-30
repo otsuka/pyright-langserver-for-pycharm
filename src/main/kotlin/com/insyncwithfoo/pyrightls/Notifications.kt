@@ -11,7 +11,7 @@ private const val ID = "Pyright LS notifications"
 private val ICON = PyrightLSIcon.COLORED_SMALL
 
 
-internal fun Notification.prettify() = apply { 
+internal fun Notification.prettify() = apply {
     isImportant = false
     icon = ICON
 }

@@ -1,7 +1,7 @@
 package com.insyncwithfoo.pyrightls
 
-import com.insyncwithfoo.pyrightls.configuration.PyrightLSAllConfigurations
-import com.insyncwithfoo.pyrightls.configuration.PyrightLSConfigurationService
+import com.insyncwithfoo.pyrightls.configuration.AllConfigurations
+import com.insyncwithfoo.pyrightls.configuration.ConfigurationService
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.projectRoots.Sdk
 import com.intellij.openapi.roots.ProjectRootManager
@@ -21,8 +21,8 @@ internal val Project.sdkPath: Path?
     get() = sdk?.homePath?.let { Path.of(it) }
 
 
-internal val Project.pyrightLSConfigurations: PyrightLSAllConfigurations
-    get() = PyrightLSConfigurationService.getInstance(this).configurations
+internal val Project.pyrightLSConfigurations: AllConfigurations
+    get() = ConfigurationService.getInstance(this).state
 
 
 internal fun Project.isPyrightLSInspectionEnabled(): Boolean {

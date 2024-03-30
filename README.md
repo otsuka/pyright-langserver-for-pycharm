@@ -1,5 +1,7 @@
 # Pyright Language Server for PyCharm Professional
 
+[![Build](https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml/badge.svg)](https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml)
+
 <!-- Plugin description -->
 Pyright language server integration for PyCharm Professional.
 

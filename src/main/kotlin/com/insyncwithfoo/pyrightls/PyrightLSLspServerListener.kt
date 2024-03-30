@@ -8,7 +8,7 @@ import org.eclipse.lsp4j.InitializeResult
 
 
 @Suppress("UnstableApiUsage")
-class PyrightLSLspServerListener(val project: Project) : LspServerListener {
+internal class PyrightLSLspServerListener(val project: Project) : LspServerListener {
     override fun serverInitialized(params: InitializeResult) {
         // pyright waits for all workspace folders to be initialised before processing
         // codeAction requests, but it never actually finishes initialising the workspace folders

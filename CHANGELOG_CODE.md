@@ -12,24 +12,42 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* [`PathResolvingHint.kt`][3-1] is added. (HEAD)
+
 ### Changed
 
-* The [`build.yaml`][3-1] workflow now:
+* The [`build.yaml`][3-2] workflow now:
   * Edits old releases when the changelogs are changed, and
-  * Upload corresponding artifacts as new drafts are created.
+  * Uploads corresponding artifacts as new drafts are created.
   
-  The two helper Python scripts are added under [`.scripts`][3-2].
+  The two helper Python scripts are added under [`.scripts`][3-3].
   (ca944192)
 
 * Plugin verifier results are now always uploaded. (ca944192)
-* [The Qodana Gradle plugin][3-3] and its corresponding action
-  [@JetBrains/qodana-action][3-4] are updated to 2023.3.2. (HEAD)
+* [The Qodana Gradle plugin][3-4] and its corresponding action
+  [@JetBrains/qodana-action][3-5] are updated to 2023.3.2. (474b797c)
+* [The IntelliJ Platform Gradle plugin][3-6] is updated to 1.17.3. (5546f8fa)
+* UI-related code is rewritten to use [Kotlin UI DSL][3-7]. (HEAD)
+* All APIs are now either internal or private. (HEAD)
+  * Some of them no longer have the prefix `PyrightLS` in their names. (HEAD)
+
+### Changed
+
+* The `configuration.common` module is removed
+  in favor of [`PyrightLSConfigurable.kt`][3-8]. (HEAD)
 
 
-  [3-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.github/workflows/build.yaml
-  [3-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.scripts/
-  [3-3]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
-  [3-4]: https://github.com/JetBrains/qodana-action
+  [3-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PathResolvingHint.kt
+  [3-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.github/workflows/build.yaml
+  [3-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.scripts/
+  [3-4]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
+  [3-5]: https://github.com/JetBrains/qodana-action
+  [3-6]: https://github.com/JetBrains/intellij-platform-gradle-plugin
+  [3-7]: https://plugins.jetbrains.com/docs/intellij/kotlin-ui-dsl-version-2.html
+  [3-8]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
+  
 
 
 ## [0.1.0-poc.2] - 2024-03-24

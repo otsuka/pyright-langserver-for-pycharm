@@ -1,17 +1,16 @@
 package com.insyncwithfoo.pyrightls.configuration.application
 
-import com.insyncwithfoo.pyrightls.configuration.common.PyrightLSConfigurable
+import com.insyncwithfoo.pyrightls.configuration.PyrightLSConfigurable
 import com.insyncwithfoo.pyrightls.message
-import com.intellij.util.xmlb.XmlSerializerUtil
 
 
-internal class PyrightLSApplicationConfigurable : PyrightLSConfigurable<Configurations>() {
+internal class Configurable : PyrightLSConfigurable<Configurations>() {
     
     override val service = ConfigurationService.getInstance()
-    override val panel by lazy { ConfigurationPanel() }
+    override val state = service.state.copy()
+    override val originalState = state.copy()
     
-    override val originalConfigurations: Configurations =
-        XmlSerializerUtil.createCopy(service.configurations)
+    override val panel by lazy { configurationPanel(state) }
     
     override fun getDisplayName() = message("configurations.global.displayName")
     

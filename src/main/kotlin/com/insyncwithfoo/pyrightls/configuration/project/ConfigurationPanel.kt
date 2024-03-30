@@ -1,47 +1,53 @@
 package com.insyncwithfoo.pyrightls.configuration.project
 
-import com.insyncwithfoo.pyrightls.configuration.common.ConfigurationPanel
+import com.insyncwithfoo.pyrightls.configuration.Hint
+import com.insyncwithfoo.pyrightls.configuration.NO_LABEL
+import com.insyncwithfoo.pyrightls.configuration.bindText
+import com.insyncwithfoo.pyrightls.configuration.displayPathHint
+import com.insyncwithfoo.pyrightls.configuration.executablePathResolvingHint
+import com.insyncwithfoo.pyrightls.configuration.makeCellReturnComponent
+import com.insyncwithfoo.pyrightls.configuration.onInput
+import com.insyncwithfoo.pyrightls.configuration.prefilledWithRandomPlaceholder
+import com.insyncwithfoo.pyrightls.configuration.secondColumnPathInput
 import com.insyncwithfoo.pyrightls.message
-import com.intellij.openapi.project.Project
+import com.insyncwithfoo.pyrightls.path
+import com.insyncwithfoo.pyrightls.resolvedAgainst
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
-import javax.swing.JCheckBox
-import javax.swing.JLabel
-import javax.swing.JPanel
+import com.intellij.ui.dsl.builder.Cell
+import com.intellij.ui.dsl.builder.Row
+import com.intellij.ui.dsl.builder.bindSelected
+import com.intellij.ui.dsl.builder.panel
 
 
-internal class ConfigurationPanel(private val project: Project) : ConfigurationPanel<Configurations>() {
+private fun unresolvablePathHint() =
+    Hint.error(message("configurations.hint.unresolvablePath"))
+
+
+private fun Row.makeProjectExecutableInput(block: Cell<TextFieldWithBrowseButton>.() -> Unit) =
+    makeCellReturnComponent { secondColumnPathInput().apply(block) }
+
+
+private fun Row.makeAutoSuggestExecutableInput() =
+    checkBox(message("configurations.project.autoSuggestExecutable.label"))
+
+
+internal fun Configurable.configurationPanel(state: Configurations) = panel {
+    // FIXME: The onInput() callbacks are too deeply nested.
     
-    override lateinit var panel: JPanel
-    
-    private lateinit var projectExecutableLabel: JLabel
-    private lateinit var projectExecutableInput: TextFieldWithBrowseButton
-    
-    private lateinit var autoSuggestExecutableInput: JCheckBox
-    
-    override val textFieldsWithBrowseButtons: List<TextFieldWithBrowseButton>
-        get() = listOf(projectExecutableInput)
-    
-    init {
-        setLabels()
-        addBrowseButtonListeners()
-        applyExistingConfigurations()
-    }
-    
-    override var configurations: Configurations
-        get() = Configurations.create(
-            projectExecutable = projectExecutableInput.text.takeIf { it.isNotBlank() },
-            autoSuggestExecutable = autoSuggestExecutableInput.isSelected
-        )
-        set(value) {
-            projectExecutableInput.text = value.projectExecutable.orEmpty()
-            autoSuggestExecutableInput.isSelected = value.autoSuggestExecutable
+    row(message("configurations.project.projectExecutable.label")) {
+        makeProjectExecutableInput {
+            onInput(::displayPathHint) { path ->
+                when {
+                    project.path == null && !path.isAbsolute -> unresolvablePathHint()
+                    else -> executablePathResolvingHint(path.resolvedAgainst(project.path))
+                }
+            }
+            
+            prefilledWithRandomPlaceholder()
+            bindText(state::projectExecutable)
         }
-    
-    override fun getService() = ConfigurationService.getInstance(project)
-    
-    override fun setLabels() {
-        projectExecutableLabel.text = message("configurations.project.projectExecutable.label")
-        autoSuggestExecutableInput.text = message("configurations.project.autoSuggestExecutable.label")
     }
-    
+    row(NO_LABEL) {
+        makeAutoSuggestExecutableInput().bindSelected(state::autoSuggestExecutable)
+    }
 }

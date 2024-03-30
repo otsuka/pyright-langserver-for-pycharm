@@ -1,46 +1,51 @@
 package com.insyncwithfoo.pyrightls.configuration.application
 
-import com.insyncwithfoo.pyrightls.configuration.common.ConfigurationPanel
+import com.insyncwithfoo.pyrightls.configuration.Hint
+import com.insyncwithfoo.pyrightls.configuration.NO_LABEL
+import com.insyncwithfoo.pyrightls.configuration.bindText
+import com.insyncwithfoo.pyrightls.configuration.displayPathHint
+import com.insyncwithfoo.pyrightls.configuration.executablePathResolvingHint
+import com.insyncwithfoo.pyrightls.configuration.makeCellReturnComponent
+import com.insyncwithfoo.pyrightls.configuration.onInput
+import com.insyncwithfoo.pyrightls.configuration.prefilledWithRandomPlaceholder
+import com.insyncwithfoo.pyrightls.configuration.secondColumnPathInput
 import com.insyncwithfoo.pyrightls.message
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
-import javax.swing.JCheckBox
-import javax.swing.JLabel
-import javax.swing.JPanel
+import com.intellij.ui.dsl.builder.Cell
+import com.intellij.ui.dsl.builder.Row
+import com.intellij.ui.dsl.builder.bindSelected
+import com.intellij.ui.dsl.builder.panel
 
 
-internal class ConfigurationPanel : ConfigurationPanel<Configurations>() {
+private fun relativePathHint() =
+    Hint.error(message("configurations.hint.globalMustBeAbsolute"))
+
+
+private fun Row.makeGlobalExecutableInput(block: Cell<TextFieldWithBrowseButton>.() -> Unit) =
+    makeCellReturnComponent { secondColumnPathInput().apply(block) }
+
+
+private fun Row.makeAlwaysUseGlobalInput() =
+    checkBox(message("configurations.global.alwaysUseGlobal.label"))
+
+
+internal fun configurationPanel(state: Configurations) = panel {
+    // FIXME: The onInput() callbacks are too deeply nested.
     
-    override lateinit var panel: JPanel
-    
-    private lateinit var alwaysUseGlobalInput: JCheckBox
-    
-    private lateinit var globalExecutableLabel: JLabel
-    private lateinit var globalExecutableInput: TextFieldWithBrowseButton
-    
-    override val textFieldsWithBrowseButtons: List<TextFieldWithBrowseButton>
-        get() = listOf(globalExecutableInput)
-    
-    init {
-        setLabels()
-        addBrowseButtonListeners()
-        applyExistingConfigurations()
-    }
-    
-    override var configurations: Configurations
-        get() = Configurations.create(
-            alwaysUseGlobal = alwaysUseGlobalInput.isSelected,
-            globalExecutable = globalExecutableInput.text.takeIf { it.isNotBlank() }
-        )
-        set(value) {
-            alwaysUseGlobalInput.isSelected = value.alwaysUseGlobal
-            globalExecutableInput.text = value.globalExecutable.orEmpty()
+    row(message("configurations.global.globalExecutable.label")) {
+        makeGlobalExecutableInput {
+            onInput(::displayPathHint) { path ->
+                when {
+                    !path.isAbsolute -> relativePathHint()
+                    else -> executablePathResolvingHint(path)
+                }
+            }
+            
+            prefilledWithRandomPlaceholder()
+            bindText(state::globalExecutable)
         }
-    
-    override fun getService() = ConfigurationService.getInstance()
-    
-    override fun setLabels() {
-        alwaysUseGlobalInput.text = message("configurations.global.alwaysUseGlobal.label")
-        globalExecutableLabel.text = message("configurations.global.globalExecutable.label")
     }
-    
+    row(NO_LABEL) {
+        makeAlwaysUseGlobalInput().bindSelected(state::alwaysUseGlobal)
+    }
 }

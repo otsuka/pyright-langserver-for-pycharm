@@ -6,7 +6,7 @@ import com.insyncwithfoo.pyrightls.configuration.project.Configurations as Proje
 
 
 internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurations) =
-    PyrightLSAllConfigurations(
+    AllConfigurations(
         alwaysUseGlobal = this.alwaysUseGlobal,
         globalExecutable = this.globalExecutable,
         
@@ -15,7 +15,7 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
     )
 
 
-internal data class PyrightLSAllConfigurations(
+internal data class AllConfigurations(
     val alwaysUseGlobal: Boolean,
     val globalExecutable: @SystemDependent String?,
     
