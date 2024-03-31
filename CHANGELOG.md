@@ -11,6 +11,11 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [0.1.0-poc.3] - 2024-03-31
+
 ### Added
 
 * UI hints are added to ease the process of setting paths.
@@ -41,6 +46,7 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.2..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.3..HEAD
+  [0.1.0-poc.3]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.2..v0.1.0-poc.3
   [0.1.0-poc.2]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.1..v0.1.0-poc.2
   [0.1.0-poc.1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/commits

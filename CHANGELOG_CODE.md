@@ -12,9 +12,14 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [0.1.0-poc.3] - 2024-03-31
+
 ### Added
 
-* [`PathResolvingHint.kt`][3-1] is added. (HEAD)
+* [`PathResolvingHint.kt`][3-1] is added. (a31ced27)
 
 ### Changed
 
@@ -29,14 +34,16 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [The Qodana Gradle plugin][3-4] and its corresponding action
   [@JetBrains/qodana-action][3-5] are updated to 2023.3.2. (474b797c)
 * [The IntelliJ Platform Gradle plugin][3-6] is updated to 1.17.3. (5546f8fa)
-* UI-related code is rewritten to use [Kotlin UI DSL][3-7]. (HEAD)
-* All APIs are now either internal or private. (HEAD)
-  * Some of them no longer have the prefix `PyrightLS` in their names. (HEAD)
+* UI-related code is rewritten to use [Kotlin UI DSL][3-7]. (a31ced27)
+* All APIs are now either internal or private.
+  * Some of them no longer have the prefix `PyrightLS` in their names.
+  
+  (a31ced27)
 
 ### Changed
 
 * The `configuration.common` module is removed
-  in favor of [`PyrightLSConfigurable.kt`][3-8]. (HEAD)
+  in favor of [`PyrightLSConfigurable.kt`][3-8]. (a31ced27)
 
 
   [3-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PathResolvingHint.kt
@@ -81,6 +88,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.2..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.3..HEAD
+  [0.1.0-poc.3]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.2..v0.1.0-poc.3
   [0.1.0-poc.2]: https://github.com/InSyncWithFoo/pyright-for-pycharm/compare/v0.1.0-poc.1..v0.1.0-poc.2
   [0.1.0-poc.1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/commits
