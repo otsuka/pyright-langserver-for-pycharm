@@ -14,7 +14,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Added
 
-* Global options "Use editor font" and "Prefix tooltips" are added. (HEAD)
+* Global options "Use editor font" and "Prefix tooltips" are added. (9ebda455)
+* Test are added. (HEAD)
 
 ### Fixed
 
