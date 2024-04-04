@@ -1,5 +1,6 @@
-package com.insyncwithfoo.pyrightls
+package com.insyncwithfoo.pyrightls.server
 
+import com.insyncwithfoo.pyrightls.PyrightLSInspection
 import com.insyncwithfoo.pyrightls.configuration.ConfigurationService
 import com.intellij.codeInspection.ex.InspectionToolRegistrar
 import com.intellij.openapi.project.Project
@@ -32,7 +33,7 @@ private val Project.pyrightLSExecutable: Path?
 
 
 @Suppress("UnstableApiUsage")
-internal class PyrightLSLspServerSupportProvider : LspServerSupportProvider {
+internal class SupportProvider : LspServerSupportProvider {
     
     override fun fileOpened(
         project: Project,
@@ -41,7 +42,7 @@ internal class PyrightLSLspServerSupportProvider : LspServerSupportProvider {
     ) {
         if (file.extension == "py" && project.isPyrightLSEnabled) {
             val executable = project.pyrightLSExecutable?.takeIf { it.exists() } ?: return
-            val descriptor = PyrightLSLspServerDescriptor(project, executable)
+            val descriptor = Descriptor(project, executable)
             
             serverStarter.ensureServerStarted(descriptor)
         }

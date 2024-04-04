@@ -3,7 +3,7 @@
 		<!--suppress PluginXmlValidity -->
 		<platform.lsp.serverSupportProvider
 			id="com.insyncwithfoo.pyrightls"
-			implementation="com.insyncwithfoo.pyrightls.PyrightLSLspServerSupportProvider"
+			implementation="com.insyncwithfoo.pyrightls.server.SupportProvider"
 		/>
 	</extensions>
 </idea-plugin>

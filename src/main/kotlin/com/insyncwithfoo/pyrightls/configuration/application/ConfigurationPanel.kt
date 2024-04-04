@@ -21,12 +21,20 @@ private fun relativePathHint() =
     Hint.error(message("configurations.hint.globalMustBeAbsolute"))
 
 
+private fun Row.makeAlwaysUseGlobalInput() =
+    checkBox(message("configurations.global.alwaysUseGlobal.label"))
+
+
 private fun Row.makeGlobalExecutableInput(block: Cell<TextFieldWithBrowseButton>.() -> Unit) =
     makeCellReturnComponent { secondColumnPathInput().apply(block) }
 
 
-private fun Row.makeAlwaysUseGlobalInput() =
-    checkBox(message("configurations.global.alwaysUseGlobal.label"))
+private fun Row.makeUseEditorFontInput() =
+    checkBox(message("configurations.global.useEditorFont.label"))
+
+
+private fun Row.makeAddTooltipPrefixInput() =
+    checkBox(message("configurations.global.addTooltipPrefix.label"))
 
 
 internal fun configurationPanel(state: Configurations) = panel {
@@ -47,5 +55,14 @@ internal fun configurationPanel(state: Configurations) = panel {
     }
     row(NO_LABEL) {
         makeAlwaysUseGlobalInput().bindSelected(state::alwaysUseGlobal)
+    }
+    
+    group(message("configurations.global.group.tooltips")) {
+        row {
+            makeUseEditorFontInput().bindSelected(state::useEditorFont)
+        }
+        row {
+            makeAddTooltipPrefixInput().bindSelected(state::addTooltipPrefix)
+        }
     }
 }

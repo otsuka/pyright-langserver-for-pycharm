@@ -12,13 +12,17 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* Global options "Use editor font" and "Prefix tooltips" are added. (HEAD)
+
 ### Fixed
 
 * A `panel.apply()` call is added to
   [`PyrightLSConfigurable.isModified()`][6-1].
   This ensures that the state of panel is synchronized
   before being compared with the original state,
-  which was not the case in v0.1.0-poc.3. (HEAD)
+  which was not the case in v0.1.0-poc.3. (9ebda455)
 
 
   [6-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt

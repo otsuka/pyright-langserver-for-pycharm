@@ -9,6 +9,8 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
     AllConfigurations(
         alwaysUseGlobal = this.alwaysUseGlobal,
         globalExecutable = this.globalExecutable,
+        useEditorFont = this.useEditorFont,
+        addTooltipPrefix = this.addTooltipPrefix,
         
         projectExecutable = other.projectExecutable,
         autoSuggestExecutable = other.autoSuggestExecutable
@@ -18,6 +20,8 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
 internal data class AllConfigurations(
     val alwaysUseGlobal: Boolean,
     val globalExecutable: @SystemDependent String?,
+    val useEditorFont: Boolean,
+    val addTooltipPrefix: Boolean,
     
     val projectExecutable: @SystemDependent String?,
     val autoSuggestExecutable: Boolean

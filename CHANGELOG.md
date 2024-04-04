@@ -11,6 +11,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* Global options "Use editor font" and "Prefix tooltips" are added.
+
 ### Fixed
 
 * v0.1.0-poc.3 has a bug causing the configurations to not be saved.

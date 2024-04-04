@@ -1,5 +1,6 @@
-package com.insyncwithfoo.pyrightls
+package com.insyncwithfoo.pyrightls.server
 
+import com.insyncwithfoo.pyrightls.message
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
@@ -8,7 +9,7 @@ import java.nio.file.Path
 
 
 @Suppress("UnstableApiUsage")
-internal class PyrightLSLspServerDescriptor(
+internal class Descriptor(
     project: Project,
     private val executable: Path
 ) : ProjectWideLspServerDescriptor(project, PRESENTABLE_NAME) {
@@ -20,7 +21,8 @@ internal class PyrightLSLspServerDescriptor(
             withCharset(Charsets.UTF_8)
         }
     
-    override val lspServerListener = PyrightLSLspServerListener(project)
+    override val lspServerListener = Listener(project)
+    override val lspDiagnosticsSupport = DiagnosticsSupport(project)
     
     companion object {
         val PRESENTABLE_NAME = message("languageServer.representableName")
