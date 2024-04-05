@@ -15,18 +15,25 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 ### Added
 
 * Global options "Use editor font" and "Prefix tooltips" are added. (9ebda455)
-* Test are added. (HEAD)
+* Test are added. (0ba420d7)
+
+### Changed
+
+* [`pluginIcon.svg`][4-1] is resized to 40 by 40 to comply with
+  [the Approval Guidelines][4-2]. (HEAD)
 
 ### Fixed
 
 * A `panel.apply()` call is added to
-  [`PyrightLSConfigurable.isModified()`][6-1].
+  [`PyrightLSConfigurable.isModified()`][4-3].
   This ensures that the state of panel is synchronized
   before being compared with the original state,
   which was not the case in v0.1.0-poc.3. (9ebda455)
 
 
-  [6-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
+  [4-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/resources/META-INF/pluginIcon.svg
+  [4-2]: https://plugins.jetbrains.com/legal/approval-guidelines
+  [4-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
 
 
 ## [0.1.0-poc.3] - 2024-03-31
