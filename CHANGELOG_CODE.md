@@ -20,12 +20,15 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 ### Changed
 
 * [`pluginIcon.svg`][4-1] is resized to 40 by 40 to comply with
-  [the Approval Guidelines][4-2]. (HEAD)
+  [the Approval Guidelines][4-2]. (96d974b5)
+* [`README.md`][4-3] is rewritten to alter the plugin description. (HEAD)
+* Bug reports and feature requests now have automatic assignees. (HEAD)
+* [`build.yaml`][4-4] now runs tests on all three platforms. (HEAD)
 
 ### Fixed
 
 * A `panel.apply()` call is added to
-  [`PyrightLSConfigurable.isModified()`][4-3].
+  [`PyrightLSConfigurable.isModified()`][4-5].
   This ensures that the state of panel is synchronized
   before being compared with the original state,
   which was not the case in v0.1.0-poc.3. (9ebda455)
@@ -33,7 +36,9 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
   [4-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/resources/META-INF/pluginIcon.svg
   [4-2]: https://plugins.jetbrains.com/legal/approval-guidelines
-  [4-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
+  [4-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/README.md
+  [4-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.github/workflows/build.yaml
+  [4-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
 
 
 ## [0.1.0-poc.3] - 2024-03-31
