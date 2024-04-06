@@ -36,13 +36,13 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   which was not the case in v0.1.0-poc.3. (9ebda455)
 
 
-  [4-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/resources/META-INF/pluginIcon.svg
+  [4-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/96d974b5/src/main/resources/META-INF/pluginIcon.svg
   [4-2]: https://plugins.jetbrains.com/legal/approval-guidelines
-  [4-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/README.md
-  [4-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.github/workflows/build.yaml
-  [4-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSSupportProvider.kt
-  [4-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
-  [4-7]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
+  [4-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/801c9546/README.md
+  [4-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/801c9546/.github/workflows/build.yaml
+  [4-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSSupportProvider.kt
+  [4-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
+  [4-7]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/9ebda455/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
 
 
 ## [0.1.0-poc.3] - 2024-03-31
@@ -76,15 +76,14 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   in favor of [`PyrightLSConfigurable.kt`][3-8]. (a31ced27)
 
 
-  [3-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PathResolvingHint.kt
-  [3-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.github/workflows/build.yaml
-  [3-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/.scripts/
+  [3-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/a31ced27/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PathResolvingHint.kt
+  [3-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/ca944192/.github/workflows/build.yaml
+  [3-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/ca944192/.scripts/
   [3-4]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
   [3-5]: https://github.com/JetBrains/qodana-action
   [3-6]: https://github.com/JetBrains/intellij-platform-gradle-plugin
   [3-7]: https://plugins.jetbrains.com/docs/intellij/kotlin-ui-dsl-version-2.html
-  [3-8]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/master/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
-  
+  [3-8]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/a31ced27/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
 
 
 ## [0.1.0-poc.2] - 2024-03-24
@@ -107,8 +106,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Gradle is updated to 8.7. (4ad34a46)
 
 
-  [2-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/tree/master/src/main/resources/icons
-  [2-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/tree/master/CHANGELOG.md
+  [2-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/tree/6dffdaa6/src/main/resources/icons
+  [2-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/tree/6dffdaa6/CHANGELOG.md
 
 
 ## [0.1.0-poc.1] - 2024-03-17
