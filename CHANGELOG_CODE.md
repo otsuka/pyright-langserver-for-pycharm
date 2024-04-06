@@ -23,9 +23,10 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   [the Approval Guidelines][4-2]. (96d974b5)
 * [`README.md`][4-3] is rewritten to alter the plugin description. (801c9546)
 * Bug reports and feature requests now have automatic assignees. (801c9546)
-* [`build.yaml`][4-4] now runs tests on all three platforms. (801c9546)
+* [`build.yaml`][4-4] now runs tests on all three platforms.
+  (801c9546, HEAD)
 * Publicly-facing classes [`SupportProvider`][4-5] and [`Descriptor`][4-6]
-  are renamed. (HEAD)
+  are renamed. (7c96ada8)
 
 ### Fixed
 
@@ -39,9 +40,9 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   [4-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/96d974b5/src/main/resources/META-INF/pluginIcon.svg
   [4-2]: https://plugins.jetbrains.com/legal/approval-guidelines
   [4-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/801c9546/README.md
-  [4-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/801c9546/.github/workflows/build.yaml
-  [4-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSSupportProvider.kt
-  [4-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
+  [4-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/.github/workflows/build.yaml
+  [4-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/7c96ada8/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSSupportProvider.kt
+  [4-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/7c96ada8/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
   [4-7]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/9ebda455/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
 
 
