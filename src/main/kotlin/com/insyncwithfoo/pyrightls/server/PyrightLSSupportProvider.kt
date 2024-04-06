@@ -33,7 +33,7 @@ private val Project.pyrightLSExecutable: Path?
 
 
 @Suppress("UnstableApiUsage")
-internal class SupportProvider : LspServerSupportProvider {
+internal class PyrightLSSupportProvider : LspServerSupportProvider {
     
     override fun fileOpened(
         project: Project,
@@ -42,7 +42,7 @@ internal class SupportProvider : LspServerSupportProvider {
     ) {
         if (file.extension == "py" && project.isPyrightLSEnabled) {
             val executable = project.pyrightLSExecutable?.takeIf { it.exists() } ?: return
-            val descriptor = Descriptor(project, executable)
+            val descriptor = PyrightLSDescriptor(project, executable)
             
             serverStarter.ensureServerStarted(descriptor)
         }
