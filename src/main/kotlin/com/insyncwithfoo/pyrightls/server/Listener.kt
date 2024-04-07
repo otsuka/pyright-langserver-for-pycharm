@@ -17,8 +17,9 @@ internal class Listener(val project: Project) : LspServerListener {
         // see: https://github.com/microsoft/pyright/issues/6874
         val lspServerManager = LspServerManager.getInstance(project)
         lspServerManager.getServersForProvider(PyrightLSSupportProvider::class.java).forEach {
-            @Suppress("DEPRECATION")
-            it.lsp4jServer.workspaceService.didChangeConfiguration(DidChangeConfigurationParams())
+            it.sendNotification { lsp4jServer ->
+                lsp4jServer.workspaceService.didChangeConfiguration(DidChangeConfigurationParams())
+            }
         }
     }
     
