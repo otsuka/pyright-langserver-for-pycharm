@@ -117,6 +117,10 @@ ij_kotlin_wrap_first_method_in_call_chain = false
 indent_size = 2
 indent_style = space
 
+[*.py]
+indent_size = 4
+indent_style = tab
+
 [*.toml]
 ij_continuation_indent_size = 4
 ij_toml_keep_indents_on_empty_lines = true
