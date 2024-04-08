@@ -41,7 +41,7 @@ Download the ZIP file(s) manually from [the <i>Releases</i> tab][6]
 or [the <i>Actions</i> tab][7] and follow the instructions described [here][8].
 
 Currently supported versions:
-2023.3.1 (build 233.11799.259) - 2024.1.* (build 241.*).
+2024.1 (build 241.14494.241) - 2024.1.* (build 241.*).
 
 
 ## Credits

@@ -12,7 +12,9 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Removed
+
+* Support for versions lower than 2024.1 is discontinued. (92b029a5, d3fd01bf)
 
 
 ## [0.1.0-poc.4] - 2024-04-07
