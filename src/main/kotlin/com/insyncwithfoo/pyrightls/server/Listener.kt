@@ -8,21 +8,24 @@ import org.eclipse.lsp4j.DidChangeConfigurationParams
 import org.eclipse.lsp4j.InitializeResult
 
 
+private fun Project.createPyrightLSSettingsObject() = Settings {
+    python {
+        pythonPath = sdkPath?.toString()
+    }
+}
+
+
 @Suppress("UnstableApiUsage")
 internal class Listener(val project: Project) : LspServerListener {
     
     override fun serverInitialized(params: InitializeResult) {
-        // pyright waits for all workspace folders to be initialised before processing
-        // codeAction requests, but it never actually finishes initialising the workspace folders
-        // sent with the initialize request unless kickstarted with an (empty) didChangeConfiguration notification
-        // see: https://github.com/microsoft/pyright/issues/6874
-        
         val lspServerManager = LspServerManager.getInstance(project)
-        val settings = project.sdkPath?.let { mapOf("python" to mapOf("pythonPath" to it.toString())) } ?: return
+        val settings = project.createPyrightLSSettingsObject()
+        val parameters = DidChangeConfigurationParams(settings)
         
         lspServerManager.getServersForProvider(PyrightLSSupportProvider::class.java).forEach { lspServer ->
             lspServer.sendNotification {
-                it.workspaceService.didChangeConfiguration(DidChangeConfigurationParams(settings))
+                it.workspaceService.didChangeConfiguration(parameters)
             }
         }
     }

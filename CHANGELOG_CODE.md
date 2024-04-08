@@ -12,9 +12,21 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* [`Settings.kt`][5-1] is added. (HEAD)
+
+### Fixed
+
+* The project interpreter path is now correctly passed to Pyright.
+  (ba0947ba, HEAD)
+
 ### Removed
 
 * Support for versions lower than 2024.1 is discontinued. (92b029a5, d3fd01bf)
+
+
+  [5-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
 
 
 ## [0.1.0-poc.4] - 2024-04-07

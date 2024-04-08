@@ -11,6 +11,11 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
+### Fixed
+
+* Earlier versions could not resolve available packages.
+  This has been fixed.
+
 ### Removed
 
 * Versions lower than 2024.1 are no longer supported.
