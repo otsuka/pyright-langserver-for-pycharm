@@ -1,5 +1,6 @@
 package com.insyncwithfoo.pyrightls.server
 
+import com.insyncwithfoo.pyrightls.sdkPath
 import com.intellij.openapi.project.Project
 import com.intellij.platform.lsp.api.LspServerListener
 import com.intellij.platform.lsp.api.LspServerManager
@@ -15,10 +16,13 @@ internal class Listener(val project: Project) : LspServerListener {
         // codeAction requests, but it never actually finishes initialising the workspace folders
         // sent with the initialize request unless kickstarted with an (empty) didChangeConfiguration notification
         // see: https://github.com/microsoft/pyright/issues/6874
+        
         val lspServerManager = LspServerManager.getInstance(project)
-        lspServerManager.getServersForProvider(PyrightLSSupportProvider::class.java).forEach {
-            it.sendNotification { lsp4jServer ->
-                lsp4jServer.workspaceService.didChangeConfiguration(DidChangeConfigurationParams())
+        val settings = project.sdkPath?.let { mapOf("python" to mapOf("pythonPath" to it.toString())) } ?: return
+        
+        lspServerManager.getServersForProvider(PyrightLSSupportProvider::class.java).forEach { lspServer ->
+            lspServer.sendNotification {
+                it.workspaceService.didChangeConfiguration(DidChangeConfigurationParams(settings))
             }
         }
     }
