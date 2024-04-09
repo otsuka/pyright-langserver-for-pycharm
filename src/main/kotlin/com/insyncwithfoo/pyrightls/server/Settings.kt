@@ -13,7 +13,7 @@ internal class Settings(block: Settings.() -> Unit) {
         python.apply(block)
     }
     
-    internal data class Python(
+    internal class Python(
         var pythonPath: String? = null
     )
     

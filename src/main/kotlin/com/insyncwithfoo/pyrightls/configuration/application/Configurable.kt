@@ -8,7 +8,6 @@ internal class Configurable : PyrightLSConfigurable<Configurations>() {
     
     override val service = ConfigurationService.getInstance()
     override val state = service.state.copy()
-    override val originalState = state.copy()
     
     override val panel by lazy { configurationPanel(state) }
     

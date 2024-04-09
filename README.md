@@ -54,6 +54,9 @@ The SVG and PNG logos are derived from [the README image][10]
 of the [@microsoft/pyright][1] repository,
 generated using Inkscape's autotrace feature.
 
+Some other files are based on or copied directly from
+[@JetBrains/intellij-platform-plugin-template][11].
+
 
   [5]: https://plugins.jetbrains.com/
   [6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/releases
@@ -61,3 +64,4 @@ generated using Inkscape's autotrace feature.
   [8]: https://www.jetbrains.com/help/pycharm/managing-plugins.html#install_plugin_from_disk
   [9]: https://github.com/koxudaxi/ruff-pycharm-plugin
   [10]: https://github.com/microsoft/pyright/blob/main/docs/img/PyrightLarge.png
+  [11]: https://github.com/JetBrains/intellij-platform-plugin-template

@@ -29,7 +29,7 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ### Fixed
 
-* v0.1.0-poc.3 has a bug causing the configurations to not be saved.
+* v0.1.0-poc.3 has a bug causing the configurations to be always unsavable.
   This has been fixed.
 
 

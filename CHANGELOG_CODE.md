@@ -14,19 +14,32 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Added
 
-* [`Settings.kt`][5-1] is added. (HEAD)
+* [`Settings.kt`][10-1] is added. (HEAD)
+* [`LICENSE_TEMPLATE.txt`][10-2] is added. (HEAD)
+
+### Changed
+
+* `released.yaml` is renamed to [`publish.yml`][10-3].
+  Steps overlapping with other jobs are removed. (HEAD)
 
 ### Fixed
 
 * The project interpreter path is now correctly passed to Pyright.
-  (ba0947ba, HEAD)
+  (ba0947ba, 7a1e3b11)
+* [`PyrightLSConfigurable`][10-4]'s `apply()`, `isModified()` and `reset()`
+  now call the corresponding methods of `panel`.
+  This fixes a(nother) regression introduced in v0.1.0-poc.3
+  which has been causing the configuration panels to be unresetable. (HEAD)
 
 ### Removed
 
 * Support for versions lower than 2024.1 is discontinued. (92b029a5, d3fd01bf)
 
 
-  [5-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
+  [10-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/7a1e3b11/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
+  [10-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/LICENSE_TEMPLATE.txt
+  [10-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/.github/workflows/publish.yaml
+  [10-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
 
 
 ## [0.1.0-poc.4] - 2024-04-07
