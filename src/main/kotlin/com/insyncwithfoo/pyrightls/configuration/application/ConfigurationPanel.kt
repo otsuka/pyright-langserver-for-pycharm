@@ -1,7 +1,6 @@
 package com.insyncwithfoo.pyrightls.configuration.application
 
 import com.insyncwithfoo.pyrightls.configuration.Hint
-import com.insyncwithfoo.pyrightls.configuration.NO_LABEL
 import com.insyncwithfoo.pyrightls.configuration.bindText
 import com.insyncwithfoo.pyrightls.configuration.displayPathHint
 import com.insyncwithfoo.pyrightls.configuration.executablePathResolvingHint
@@ -40,6 +39,10 @@ private fun Row.makeAddTooltipPrefixInput() =
 internal fun configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
     
+    row {
+        makeAlwaysUseGlobalInput().bindSelected(state::alwaysUseGlobal)
+    }
+    
     row(message("configurations.global.globalExecutable.label")) {
         makeGlobalExecutableInput {
             onInput(::displayPathHint) { path ->
@@ -53,9 +56,6 @@ internal fun configurationPanel(state: Configurations) = panel {
             bindText(state::globalExecutable)
         }
     }
-    row(NO_LABEL) {
-        makeAlwaysUseGlobalInput().bindSelected(state::alwaysUseGlobal)
-    }
     
     group(message("configurations.global.group.tooltips")) {
         row {
@@ -65,4 +65,5 @@ internal fun configurationPanel(state: Configurations) = panel {
             makeAddTooltipPrefixInput().bindSelected(state::addTooltipPrefix)
         }
     }
+    
 }
