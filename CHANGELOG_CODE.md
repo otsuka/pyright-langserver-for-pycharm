@@ -14,22 +14,23 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Added
 
-* [`Settings.kt`][10-1] is added. (HEAD)
-* [`LICENSE_TEMPLATE.txt`][10-2] is added. (HEAD)
+* [`Settings.kt`][10-1] is added. (fce7406e)
+* [`LICENSE_TEMPLATE.txt`][10-2] is added. (fce7406e)
 
 ### Changed
 
 * `released.yaml` is renamed to [`publish.yml`][10-3].
-  Steps overlapping with other jobs are removed. (HEAD)
+  Steps overlapping with other jobs are removed. (fce7406e)
+* [@gradle/wrapper-validation-action][10-4] is updated to 2.1.3. (1ca18f6d)
 
 ### Fixed
 
 * The project interpreter path is now correctly passed to Pyright.
   (ba0947ba, 7a1e3b11)
-* [`PyrightLSConfigurable`][10-4]'s `apply()`, `isModified()` and `reset()`
+* [`PyrightLSConfigurable`][10-5]'s `apply()`, `isModified()` and `reset()`
   now call the corresponding methods of `panel`.
   This fixes a(nother) regression introduced in v0.1.0-poc.3
-  which has been causing the configuration panels to be unresetable. (HEAD)
+  which has been causing the configuration panels to be unresetable. (fce7406e)
 
 ### Removed
 
@@ -37,9 +38,10 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 
   [10-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/7a1e3b11/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
-  [10-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/LICENSE_TEMPLATE.txt
-  [10-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/.github/workflows/publish.yaml
-  [10-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
+  [10-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/fce7406e/LICENSE_TEMPLATE.txt
+  [10-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/fce7406e/.github/workflows/publish.yaml
+  [10-4]: https://github.com/gradle/wrapper-validation-action
+  [10-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/fce7406e/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PyrightLSConfigurable.kt
 
 
 ## [0.1.0-poc.4] - 2024-04-07

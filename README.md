@@ -11,8 +11,8 @@ This plugin acts as a bridge between [the Pyright language server][1]
 and [the experimental LSP API][2] added in PyCharm Professional 2023.2
 to give you annotations about your code as you edit your Python files.
 
-Note: If you use PyCharm Community, install
-[the <i>Pyright</i> plugin][3] instead.
+Note: If you use PyCharm Community,
+install [the <i>Pyright</i> plugin][3] instead.
 
 
 ## Usage
