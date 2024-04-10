@@ -37,8 +37,8 @@ See [the docs][4] for more information on the configurations and features.
 
 ## Installation
 
-This plugin has not been published to [the Marketplace][5].
-Download the ZIP file(s) manually from [the <i>Releases</i> tab][6]
+This plugin [is available][5] on the Marketplace.
+You can also download the ZIP files manually from [the <i>Releases</i> tab][6]
 or [the <i>Actions</i> tab][7] and follow the instructions described [here][8].
 
 Currently supported versions:
