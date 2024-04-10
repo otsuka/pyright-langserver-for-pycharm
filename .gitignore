@@ -1,6 +1,6 @@
 .gradle
 build/
-.sources/
+
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -8,6 +8,11 @@ build/
 .scripts/
 !.scripts/changelog.py
 !.scripts/edit_releases.py
+
+TODO.md
+.credentials/
+
+.sources/
 
 ### IntelliJ IDEA ###
 .idea/**
