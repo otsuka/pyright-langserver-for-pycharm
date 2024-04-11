@@ -18,19 +18,31 @@ private fun String.toPreformatted(font: String? = null) =
         .child(HtmlChunk.text(this)).toString()
 
 
+private val Diagnostic.suffixedMessage: String
+    get() {
+        val code = code?.get() as String?
+        val suffix = if (code != null) " ($code)" else ""
+        
+        return "$message$suffix"
+    }
+
+
 @Suppress("UnstableApiUsage")
 internal class DiagnosticsSupport(private val project: Project) : LspDiagnosticsSupport() {
     
+    override fun getMessage(diagnostic: Diagnostic) = diagnostic.suffixedMessage
+    
     override fun getTooltip(diagnostic: Diagnostic): String {
         val configurations = project.pyrightLSConfigurations
-        var tooltip = diagnostic.message
-        val font = when {
-            configurations.useEditorFont -> EditorUtil.getEditorFont()
-            else -> null
-        }
+        var tooltip = diagnostic.suffixedMessage
         
         if (configurations.addTooltipPrefix) {
             tooltip = "Pyright: $tooltip"
+        }
+        
+        val font = when {
+            configurations.useEditorFont -> EditorUtil.getEditorFont()
+            else -> null
         }
         
         return tooltip.toPreformatted(font?.name)

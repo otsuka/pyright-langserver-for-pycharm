@@ -11,6 +11,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
+### Changed
+
+* Rule codes, if any, are now appended to messages.
+
 ### Fixed
 
 * The plugin is no longer mistakenly considered

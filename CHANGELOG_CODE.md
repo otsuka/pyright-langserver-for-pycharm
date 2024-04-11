@@ -12,11 +12,20 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Changed
+
+* [`DiagnosticsSupport.getMessage()`][20-1] is overridden
+  to return `Diagnostic.suffixedMessage`,
+  which adds error codes to messages. (HEAD)
+
 ### Fixed
 
 * `com.intellij.modules.ultimate`, which is only available in paid IDEs,
   is now a required dependency. This effectively makes the plugin
-  no longer installable on/compatible with PyCharm Community. (HEAD)
+  no longer installable on/compatible with PyCharm Community. (57a1ee98)
+
+
+  [20-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/DiagnosticsSupport.kt
 
 
 ## [0.1.0] - 2024-04-10
