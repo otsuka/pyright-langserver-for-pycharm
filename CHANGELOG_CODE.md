@@ -12,7 +12,11 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Fixed
+
+* `com.intellij.modules.ultimate`, which is only available in paid IDEs,
+  is now a required dependency. This effectively makes the plugin
+  no longer installable on/compatible with PyCharm Community. (HEAD)
 
 
 ## [0.1.0] - 2024-04-10

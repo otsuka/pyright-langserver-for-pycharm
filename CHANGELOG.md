@@ -11,7 +11,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Fixed
+
+* The plugin is no longer mistakenly considered
+  compatible with PyCharm Community.
 
 
 ## [0.1.0] - 2024-04-10

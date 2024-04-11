@@ -20,7 +20,7 @@
 	<depends>com.intellij.modules.lang</depends>
 	<depends>com.intellij.modules.python</depends>
 	<depends>com.intellij.modules.platform</depends>
-	<depends optional="true" config-file="plugin-professional.xml">com.intellij.modules.ultimate</depends>
+	<depends>com.intellij.modules.ultimate</depends>
 	
 	<!-- Extension points defined by the plugin.
 		 Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
@@ -54,6 +54,12 @@
 			level="WARNING"
 			
 			implementationClass="com.insyncwithfoo.pyrightls.PyrightLSInspection"
+		/>
+		
+		<!--suppress PluginXmlValidity -->
+		<platform.lsp.serverSupportProvider
+			id="com.insyncwithfoo.pyrightls"
+			implementation="com.insyncwithfoo.pyrightls.server.PyrightLSSupportProvider"
 		/>
 		
 		<postStartupActivity
