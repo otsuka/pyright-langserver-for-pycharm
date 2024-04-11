@@ -7,6 +7,8 @@ import com.intellij.openapi.projectRoots.Sdk
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.profile.codeInspection.InspectionProjectProfileManager
 import java.nio.file.Path
+import kotlin.io.path.listDirectoryEntries
+import kotlin.io.path.nameWithoutExtension
 
 
 internal val Project.path: Path?
@@ -31,4 +33,12 @@ internal fun Project.isPyrightLSInspectionEnabled(): Boolean {
     val pyrightLSInspection = profile.allTools.find { it.tool.shortName == PyrightLSInspection.SHORT_NAME }
     
     return pyrightLSInspection?.isEnabled ?: false
+}
+
+
+internal fun Project.findPyrightLSExecutable(): Path? {
+    val sdkDirectory = sdkPath?.parent ?: return null
+    val children = sdkDirectory.listDirectoryEntries()
+    
+    return children.find { it.nameWithoutExtension == "pyright-langserver" }
 }

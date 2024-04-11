@@ -5,8 +5,7 @@ import com.intellij.notification.NotificationType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.ProjectActivity
 import java.nio.file.Path
-import kotlin.io.path.listDirectoryEntries
-import kotlin.io.path.nameWithoutExtension
+import com.insyncwithfoo.pyrightls.configuration.project.Configurations as ProjectConfigurations
 
 
 private val Project.sdkIsLocal: Boolean
@@ -15,6 +14,7 @@ private val Project.sdkIsLocal: Boolean
         sdkPath == null -> false
         else -> sdkPath!!.startsWith(path!!)
     }
+
 
 private fun Project.executableShouldBeSuggested(): Boolean {
     val configurations = pyrightLSConfigurations
@@ -26,26 +26,22 @@ private fun Project.executableShouldBeSuggested(): Boolean {
     return suggestionIsEnabled && noProjectExecutableGiven && !globalExcutableIsPreferred
 }
 
-private fun Project.findPyrightLSExecutable(): Path? {
-    val sdkDirectory = sdkPath?.parent ?: return null
-    val children = sdkDirectory.listDirectoryEntries()
-    
-    return children.find { it.nameWithoutExtension == "pyright-langserver" }
-}
 
-private fun Project.setAsExecutable(executable: Path) {
+private fun Project.changePyrightLSConfigurations(action: ProjectConfigurations.() -> Unit) {
     val configurationService = ConfigurationService.getInstance(this)
     val projectConfigurations = configurationService.projectService.state
     
-    projectConfigurations.projectExecutable = executable.toString()
+    projectConfigurations.action()
+}
+
+
+private fun Project.setAsExecutable(executable: Path) {
+    changePyrightLSConfigurations { projectExecutable = executable.toString() }
 }
 
 
 private fun Project.disableSuggester() {
-    val configurationService = ConfigurationService.getInstance(this)
-    val projectConfigurations = configurationService.projectService.state
-    
-    projectConfigurations.autoSuggestExecutable = false
+    changePyrightLSConfigurations { autoSuggestExecutable = false }
 }
 
 
