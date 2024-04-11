@@ -1,6 +1,9 @@
 # Pyright Language Server for PyCharm Professional
 
 [![Build](https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml/badge.svg)](https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml)
+[![Version](https://img.shields.io/jetbrains/plugin/v/24146)][5]
+[![Rating](https://img.shields.io/jetbrains/plugin/r/rating/24146)][5]
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/24146)][5]
 
 ![](./.github/readme/demo1.png)
 
@@ -59,7 +62,7 @@ Some other files are based on or copied directly from
 [@JetBrains/intellij-platform-plugin-template][11].
 
 
-  [5]: https://plugins.jetbrains.com/
+  [5]: https://plugins.jetbrains.com/plugin/24146
   [6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/releases
   [7]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml
   [8]: https://www.jetbrains.com/help/pycharm/managing-plugins.html#install_plugin_from_disk
