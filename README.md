@@ -25,16 +25,16 @@ Go to <b>Settings</b> | <b>Tools</b> |
 set the path to your Pyright language server executable.
 It is typically named `pyright-langserver`/`pyright-python-langserver`.
 
+(Not sure what this means? See [the docs][4] for more information.)
+
 You might need to reopen your files or restart the IDE
 for the files to be recognized by the language server.
-
-See [the docs][4] for more information on the configurations and features.
 
 
   [1]: https://github.com/microsoft/pyright
   [2]: https://plugins.jetbrains.com/docs/intellij/language-server-protocol.html
   [3]: https://github.com/InSyncWithFoo/pyright-for-pycharm
-  [4]: https://insyncwithfoo.github.io/pyright-for-pycharm/
+  [4]: https://insyncwithfoo.github.io/pyright-for-pycharm/configurations/common/#executable
 <!-- Plugin description end -->
 
 
