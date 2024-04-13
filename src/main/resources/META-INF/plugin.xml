@@ -47,7 +47,7 @@
 			groupName="Python"
 			
 			shortName="PyrightLSInspection"
-			displayName="Pyright LS inspection"
+			displayName="Pyright language server diagnostics"
 			suppressId="PyrightLS"
 			
 			enabledByDefault="true"

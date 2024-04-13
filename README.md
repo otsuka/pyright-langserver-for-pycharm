@@ -5,7 +5,7 @@
 [![Rating](https://img.shields.io/jetbrains/plugin/r/rating/24146)][5]
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/24146)][5]
 
-![](./.github/readme/demo1.png)
+![](./.github/readme/demo-1.png)
 
 <!-- Plugin description -->
 Pyright language server integration for PyCharm Professional.

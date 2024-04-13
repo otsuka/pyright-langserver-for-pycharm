@@ -1,11 +1,16 @@
 package com.insyncwithfoo.pyrightls.server
 
+import com.insyncwithfoo.pyrightls.HighlightSeverity
+import com.insyncwithfoo.pyrightls.PyrightLSInspection
 import com.insyncwithfoo.pyrightls.pyrightLSConfigurations
+import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.ex.util.EditorUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.text.HtmlChunk
 import com.intellij.platform.lsp.api.customization.LspDiagnosticsSupport
+import com.intellij.profile.codeInspection.InspectionProjectProfileManager
 import org.eclipse.lsp4j.Diagnostic
+import org.eclipse.lsp4j.DiagnosticSeverity
 
 
 private fun <T> T.applyIf(condition: Boolean, block: T.() -> T): T =
@@ -27,8 +32,28 @@ private val Diagnostic.suffixedMessage: String
     }
 
 
+private fun Project.getPyrightLSInspection(): PyrightLSInspection {
+    val inspectionManager = InspectionProjectProfileManager.getInstance(this)
+    val profile = inspectionManager.currentProfile
+    
+    return profile.getInspectionTool(PyrightLSInspection.SHORT_NAME, this)!!.tool as PyrightLSInspection
+}
+
+
 @Suppress("UnstableApiUsage")
 internal class DiagnosticsSupport(private val project: Project) : LspDiagnosticsSupport() {
+    
+    override fun getHighlightSeverity(diagnostic: Diagnostic): HighlightSeverity? {
+        val inspection = project.getPyrightLSInspection()
+        
+        return when (diagnostic.severity) {
+            DiagnosticSeverity.Error -> HighlightSeverity(inspection.highlightSeverityForErrors)
+            DiagnosticSeverity.Warning -> HighlightSeverity(inspection.highlightSeverityForWarnings)
+            DiagnosticSeverity.Information -> HighlightSeverity(inspection.highlightSeverityForInformation)
+            DiagnosticSeverity.Hint -> super.getHighlightSeverity(diagnostic)
+            else -> throw RuntimeException("This should not happen")
+        }
+    }
     
     override fun getMessage(diagnostic: Diagnostic) = diagnostic.suffixedMessage
     

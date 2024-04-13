@@ -11,6 +11,12 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* Highlight severity levels are now configurable
+  using the options provided in the <i>Inspection</i> panel.
+  The inspection is renamed to "Pyright language server diagnostics".
+
 ### Changed
 
 * Rule codes, if any, are now appended to messages.

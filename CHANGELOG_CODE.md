@@ -12,9 +12,15 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* Three new properties are added to [`PyrightLSInspection`][20-1]
+  to allow configuring highlight severity levels. (HEAD)
+
+
 ### Changed
 
-* [`DiagnosticsSupport.getMessage()`][20-1] is overridden
+* [`DiagnosticsSupport.getMessage()`][20-2] is overridden
   to return `Diagnostic.suffixedMessage`,
   which adds error codes to messages. (4ca00c40)
 
@@ -25,7 +31,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   no longer installable on/compatible with PyCharm Community. (57a1ee98)
 
 
-  [20-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/4ca00c40/src/main/kotlin/com/insyncwithfoo/pyrightls/server/DiagnosticsSupport.kt
+  [20-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/PyrightLSInspection.kt
+  [20-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/4ca00c40/src/main/kotlin/com/insyncwithfoo/pyrightls/server/DiagnosticsSupport.kt
 
 
 ## [0.1.0] - 2024-04-10
