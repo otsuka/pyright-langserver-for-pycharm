@@ -15,14 +15,15 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 ### Added
 
 * Three new properties are added to [`PyrightLSInspection`][20-1]
-  to allow configuring highlight severity levels. (HEAD)
+  to allow configuring highlight severity levels. (d36526b8)
 
 
 ### Changed
 
 * [`DiagnosticsSupport.getMessage()`][20-2] is overridden
-  to return `Diagnostic.suffixedMessage`,
-  which adds error codes to messages. (4ca00c40)
+  to return `Diagnostic.suffixedMessage`, which adds error codes to messages.
+  The related global option "Link error codes" is added.
+  (4ca00c40, HEAD)
 
 ### Fixed
 

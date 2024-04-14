@@ -13,23 +13,38 @@ import org.eclipse.lsp4j.Diagnostic
 import org.eclipse.lsp4j.DiagnosticSeverity
 
 
-private fun <T> T.applyIf(condition: Boolean, block: T.() -> T): T =
+private fun <T> T.letIf(condition: Boolean, block: (T) -> T): T =
+    if (condition) block(this) else this
+
+
+private fun <T> T.runIf(condition: Boolean, block: T.() -> T): T =
     if (condition) block() else this
 
 
-private fun String.toPreformatted(font: String? = null) =
-    HtmlChunk.div()
-        .applyIf(font != null) { style("font-family: '$font'") }
-        .child(HtmlChunk.text(this)).toString()
+private fun HtmlChunk.Element.withFont(font: String?) =
+    this.runIf(font != null) { style("font-family: '$font'") }
+
+
+private fun String.toPreformattedBlock(font: String?) =
+    HtmlChunk.div().withFont(font).child(HtmlChunk.text(this))
+
+
+private fun String.toCodeSuffix(font: String? = null, href: String? = null): String {
+    val parenthesizedPortion = href?.let { HtmlChunk.link(it, this).withFont(font) } ?: this
+    return " ($parenthesizedPortion)"
+}
+
+
+private val Diagnostic.codeAsString: String?
+    get() = code?.get() as String?
+
+
+private val Diagnostic.rawCodeSuffix: String
+    get() = codeAsString?.toCodeSuffix().orEmpty()
 
 
 private val Diagnostic.suffixedMessage: String
-    get() {
-        val code = code?.get() as String?
-        val suffix = if (code != null) " ($code)" else ""
-        
-        return "$message$suffix"
-    }
+    get() = "$message$rawCodeSuffix"
 
 
 private fun Project.getPyrightLSInspection(): PyrightLSInspection {
@@ -59,18 +74,17 @@ internal class DiagnosticsSupport(private val project: Project) : LspDiagnostics
     
     override fun getTooltip(diagnostic: Diagnostic): String {
         val configurations = project.pyrightLSConfigurations
-        var tooltip = diagnostic.suffixedMessage
         
-        if (configurations.addTooltipPrefix) {
-            tooltip = "Pyright: $tooltip"
-        }
+        val descriptionHref = diagnostic.codeDescription?.href
+            ?.takeIf { configurations.linkErrorCodes }
+        val font = EditorUtil.getEditorFont().name
+            ?.takeIf { configurations.useEditorFont }
+        val tooltip = diagnostic.message
+            .letIf(configurations.addTooltipPrefix) { "Pyright: $it" }
         
-        val font = when {
-            configurations.useEditorFont -> EditorUtil.getEditorFont()
-            else -> null
-        }
+        val codeSuffix = diagnostic.codeAsString?.toCodeSuffix(font, descriptionHref).orEmpty()
         
-        return tooltip.toPreformatted(font?.name)
+        return tooltip.toPreformattedBlock(font).addRaw(codeSuffix).toString()
     }
     
 }

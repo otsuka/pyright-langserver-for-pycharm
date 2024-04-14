@@ -8,4 +8,5 @@ internal class Configurations : BaseState() {
     var globalExecutable by string(null)
     var useEditorFont by property(false)
     var addTooltipPrefix by property(false)
+    var linkErrorCodes by property(false)
 }

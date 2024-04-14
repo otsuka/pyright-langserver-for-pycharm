@@ -22,13 +22,14 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - application`() {
         val configurations = ApplicationConfigurations()
         
-        assertEquals(4, applicationFields().size)
+        assertEquals(5, applicationFields().size)
         
         configurations.run {
             assertEquals(false, alwaysUseGlobal)
             assertEquals(null, globalExecutable)
             assertEquals(false, useEditorFont)
             assertEquals(false, addTooltipPrefix)
+            assertEquals(false, linkErrorCodes)
         }
     }
     

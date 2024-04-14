@@ -36,6 +36,10 @@ private fun Row.makeAddTooltipPrefixInput(block: Cell<JBCheckBox>.() -> Unit) =
     checkBox(message("configurations.global.addTooltipPrefix.label")).apply(block)
 
 
+private fun Row.makeLinkErrorCodesInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.global.linkErrorCodes.label")).apply(block)
+
+
 internal fun configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
     
@@ -63,6 +67,9 @@ internal fun configurationPanel(state: Configurations) = panel {
         }
         row {
             makeAddTooltipPrefixInput { bindSelected(state::addTooltipPrefix) }
+        }
+        row {
+            makeLinkErrorCodesInput { bindSelected(state::linkErrorCodes) }
         }
     }
     

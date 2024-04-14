@@ -19,12 +19,12 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ### Changed
 
-* Rule codes, if any, are now appended to messages.
+* Rule codes, if given, are now appended to messages.
+  They can be made links if the corresponding option is enabled.
 
 ### Fixed
 
-* The plugin is no longer mistakenly considered
-  compatible with PyCharm Community.
+* The plugin is no longer technically installable on PyCharm Community.
 
 
 ## [0.1.0] - 2024-04-10
