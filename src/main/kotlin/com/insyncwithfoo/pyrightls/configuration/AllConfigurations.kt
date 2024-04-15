@@ -12,6 +12,7 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
         useEditorFont = this.useEditorFont,
         addTooltipPrefix = this.addTooltipPrefix,
         linkErrorCodes = this.linkErrorCodes,
+        hoverSupport = this.hoverSupport,
         
         projectExecutable = other.projectExecutable,
         autoSuggestExecutable = other.autoSuggestExecutable
@@ -24,6 +25,7 @@ internal data class AllConfigurations(
     val useEditorFont: Boolean,
     val addTooltipPrefix: Boolean,
     val linkErrorCodes: Boolean,
+    val hoverSupport: Boolean,
     
     val projectExecutable: @SystemDependent String?,
     val autoSuggestExecutable: Boolean

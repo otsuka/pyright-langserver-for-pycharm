@@ -9,4 +9,6 @@ internal class Configurations : BaseState() {
     var useEditorFont by property(false)
     var addTooltipPrefix by property(false)
     var linkErrorCodes by property(false)
+    
+    var hoverSupport by property(true)
 }

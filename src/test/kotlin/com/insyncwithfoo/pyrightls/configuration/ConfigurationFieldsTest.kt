@@ -22,7 +22,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - application`() {
         val configurations = ApplicationConfigurations()
         
-        assertEquals(5, applicationFields().size)
+        assertEquals(6, applicationFields().size)
         
         configurations.run {
             assertEquals(false, alwaysUseGlobal)
@@ -30,6 +30,8 @@ class ConfigurationFieldsTest : TestCase() {
             assertEquals(false, useEditorFont)
             assertEquals(false, addTooltipPrefix)
             assertEquals(false, linkErrorCodes)
+            
+            assertEquals(true, hoverSupport)
         }
     }
     

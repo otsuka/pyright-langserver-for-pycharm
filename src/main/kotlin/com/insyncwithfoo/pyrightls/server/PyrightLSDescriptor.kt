@@ -2,6 +2,7 @@ package com.insyncwithfoo.pyrightls.server
 
 import com.insyncwithfoo.pyrightls.message
 import com.insyncwithfoo.pyrightls.path
+import com.insyncwithfoo.pyrightls.pyrightLSConfigurations
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
@@ -15,6 +16,12 @@ internal class PyrightLSDescriptor(
     private val executable: Path
 ) : ProjectWideLspServerDescriptor(project, PRESENTABLE_NAME) {
     
+    private val configurations = project.pyrightLSConfigurations
+    
+    override val lspServerListener = Listener(project)
+    override val lspDiagnosticsSupport = DiagnosticsSupport(project)
+    override val lspHoverSupport = configurations.hoverSupport
+    
     override fun isSupportedFile(file: VirtualFile) = file.extension == "py"
     
     override fun createCommandLine() =
@@ -22,9 +29,6 @@ internal class PyrightLSDescriptor(
             withWorkDirectory(project.path?.toString())
             withCharset(Charsets.UTF_8)
         }
-    
-    override val lspServerListener = Listener(project)
-    override val lspDiagnosticsSupport = DiagnosticsSupport(project)
     
     companion object {
         val PRESENTABLE_NAME = message("languageServer.representableName")

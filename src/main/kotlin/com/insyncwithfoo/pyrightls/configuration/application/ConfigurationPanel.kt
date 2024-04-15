@@ -40,6 +40,10 @@ private fun Row.makeLinkErrorCodesInput(block: Cell<JBCheckBox>.() -> Unit) =
     checkBox(message("configurations.global.linkErrorCodes.label")).apply(block)
 
 
+private fun Row.makeHoverSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.global.hoverSupport.label")).apply(block)
+
+
 internal fun configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
     
@@ -70,6 +74,12 @@ internal fun configurationPanel(state: Configurations) = panel {
         }
         row {
             makeLinkErrorCodesInput { bindSelected(state::linkErrorCodes) }
+        }
+    }
+    
+    group(message("configurations.global.group.languageServer")) {
+        row {
+            makeHoverSupportInput { bindSelected(state::hoverSupport) }
         }
     }
     

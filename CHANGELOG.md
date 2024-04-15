@@ -16,6 +16,7 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * Highlight severity levels are now configurable
   using the options provided in the <i>Inspection</i> panel.
   The inspection is renamed to "Pyright language server diagnostics".
+* Hover support can now be disabled.
 
 ### Changed
 
