@@ -11,4 +11,5 @@ internal class Configurations : BaseState() {
     var linkErrorCodes by property(false)
     
     var hoverSupport by property(true)
+    var completionSupport by property(false)
 }

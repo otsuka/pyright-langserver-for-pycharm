@@ -22,7 +22,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - application`() {
         val configurations = ApplicationConfigurations()
         
-        assertEquals(6, applicationFields().size)
+        assertEquals(7, applicationFields().size)
         
         configurations.run {
             assertEquals(false, alwaysUseGlobal)
@@ -32,6 +32,7 @@ class ConfigurationFieldsTest : TestCase() {
             assertEquals(false, linkErrorCodes)
             
             assertEquals(true, hoverSupport)
+            assertEquals(false, completionSupport)
         }
     }
     

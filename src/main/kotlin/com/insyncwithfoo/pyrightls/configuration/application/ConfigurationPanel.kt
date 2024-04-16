@@ -44,6 +44,11 @@ private fun Row.makeHoverSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
     checkBox(message("configurations.global.hoverSupport.label")).apply(block)
 
 
+private fun Row.makeCompletionSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.global.completionSupport.label")).apply(block)
+
+
+@Suppress("DialogTitleCapitalization")
 internal fun configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
     
@@ -80,6 +85,7 @@ internal fun configurationPanel(state: Configurations) = panel {
     group(message("configurations.global.group.languageServer")) {
         row {
             makeHoverSupportInput { bindSelected(state::hoverSupport) }
+            makeCompletionSupportInput { bindSelected(state::completionSupport) }
         }
     }
     

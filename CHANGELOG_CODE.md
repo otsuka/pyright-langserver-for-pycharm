@@ -16,9 +16,9 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 * Three new properties are added to [`PyrightLSInspection`][20-1]
   to allow configuring highlight severity levels. (d36526b8)
-* [`PyrightLSDescriptor.lspHoverSupport`][20-2] is overridden
-  to return the corresponding custom value provided by the user. (HEAD)
-
+* [`PyrightLSDescriptor`][20-2]'s `.lspHoverSupport` and `lspCompletionSupport`
+  are overridden to respect the corresponding user-provided values.
+  (6c58ffe9, HEAD)
 
 ### Changed
 
@@ -26,6 +26,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   to return `Diagnostic.suffixedMessage`, which adds error codes to messages.
   The related global option "Link error codes" is added.
   (4ca00c40, e348bf9f)
+* [@gradle/actions/wrapper-validation][20-4] is updated to 3.3.0. (7c80f8d6)
 
 ### Fixed
 
@@ -37,6 +38,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   [20-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/e348bf9f/src/main/kotlin/com/insyncwithfoo/pyrightls/PyrightLSInspection.kt
   [20-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
   [20-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/4ca00c40/src/main/kotlin/com/insyncwithfoo/pyrightls/server/DiagnosticsSupport.kt
+  [20-4]: https://github.com/gradle/actions/wrapper-validation
 
 
 ## [0.1.0] - 2024-04-10

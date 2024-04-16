@@ -19,6 +19,8 @@ internal class PyrightLSDescriptor(
     private val configurations = project.pyrightLSConfigurations
     
     override val lspServerListener = Listener(project)
+    
+    override val lspCompletionSupport = CompletionSupport().takeIf { configurations.completionSupport }
     override val lspDiagnosticsSupport = DiagnosticsSupport(project)
     override val lspHoverSupport = configurations.hoverSupport
     

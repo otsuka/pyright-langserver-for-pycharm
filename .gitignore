@@ -13,6 +13,7 @@ TODO.md
 .credentials/
 
 .sources/
+.misc/
 
 ### IntelliJ IDEA ###
 .idea/**
