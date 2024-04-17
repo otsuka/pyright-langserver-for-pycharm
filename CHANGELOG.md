@@ -29,6 +29,7 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 * Rule codes, if given, are now appended to messages.
   They can be made links if the corresponding option is enabled.
+* UI messages are slightly changed.
 
 ### Fixed
 
