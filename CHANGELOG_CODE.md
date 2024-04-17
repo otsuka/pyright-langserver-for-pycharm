@@ -12,20 +12,25 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [0.2.0] - 2024-04-16
+
 ### Added
 
 * Three new properties are added to [`PyrightLSInspection`][20-1]
   to allow configuring highlight severity levels. (d36526b8)
+* Global option "Link error codes" is added. (e348bf9f)
 * [`PyrightLSDescriptor`][20-2]'s `.lspHoverSupport` and `lspCompletionSupport`
   are overridden to respect the corresponding user-provided values.
-  (6c58ffe9, HEAD)
+  (6c58ffe9, f449161e)
 
 ### Changed
 
 * [`DiagnosticsSupport.getMessage()`][20-3] is overridden
   to return `Diagnostic.suffixedMessage`, which adds error codes to messages.
-  The related global option "Link error codes" is added.
-  (4ca00c40, e348bf9f)
+  (4ca00c40)
 * [@gradle/actions/wrapper-validation][20-4] is updated to 3.3.0. (7c80f8d6)
 
 ### Fixed
@@ -36,7 +41,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 
   [20-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/e348bf9f/src/main/kotlin/com/insyncwithfoo/pyrightls/PyrightLSInspection.kt
-  [20-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
+  [20-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/f449161e/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
   [20-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/4ca00c40/src/main/kotlin/com/insyncwithfoo/pyrightls/server/DiagnosticsSupport.kt
   [20-4]: https://github.com/gradle/actions/wrapper-validation
 
@@ -183,7 +188,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.2.0..HEAD
+  [0.2.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0..v0.2.0
   [0.1.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0-poc.4..v0.1.0
   [0.1.0-poc.4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0-poc.3..v0.1.0-poc.4
   [0.1.0-poc.3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0-poc.2..v0.1.0-poc.3
