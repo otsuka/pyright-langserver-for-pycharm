@@ -12,4 +12,5 @@ internal class Configurations : BaseState() {
     
     var hoverSupport by property(true)
     var completionSupport by property(false)
+    var goToDefinitionSupport by property(false)
 }

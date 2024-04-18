@@ -12,7 +12,13 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Added
+
+* [`PyrightLSDescriptor`][30-1]'s `.lspGoToDefinitionSupport`
+  is overridden to respect the corresponding user-provided values. (HEAD)
+
+
+  [30-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
 
 
 ## [0.2.0] - 2024-04-16

@@ -11,7 +11,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Added
+
+* Go-to-definition support is now configurable and disabled by default.
+  Previously this was always enabled.
 
 
 ## [0.2.0] - 2024-04-16

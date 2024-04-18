@@ -14,6 +14,7 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
         linkErrorCodes = this.linkErrorCodes,
         hoverSupport = this.hoverSupport,
         completionSupport = this.completionSupport,
+        goToDefinitionSupport = this.goToDefinitionSupport,
         
         projectExecutable = other.projectExecutable,
         autoSuggestExecutable = other.autoSuggestExecutable
@@ -28,6 +29,7 @@ internal data class AllConfigurations(
     val linkErrorCodes: Boolean,
     val hoverSupport: Boolean,
     val completionSupport: Boolean,
+    val goToDefinitionSupport: Boolean,
     
     val projectExecutable: @SystemDependent String?,
     val autoSuggestExecutable: Boolean
