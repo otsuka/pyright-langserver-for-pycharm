@@ -1,5 +1,6 @@
 package com.insyncwithfoo.pyrightls.configuration
 
+import com.insyncwithfoo.pyrightls.configuration.application.LogLevel
 import junit.framework.TestCase
 import com.insyncwithfoo.pyrightls.configuration.application.Configurations as ApplicationConfigurations
 import com.insyncwithfoo.pyrightls.configuration.project.Configurations as ProjectConfigurations
@@ -22,7 +23,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - application`() {
         val configurations = ApplicationConfigurations()
         
-        assertEquals(8, applicationFields().size)
+        assertEquals(9, applicationFields().size)
         
         configurations.run {
             assertEquals(false, alwaysUseGlobal)
@@ -34,6 +35,7 @@ class ConfigurationFieldsTest : TestCase() {
             assertEquals(true, hoverSupport)
             assertEquals(false, completionSupport)
             assertEquals(false, goToDefinitionSupport)
+            assertEquals(LogLevel.INFORMATION, logLevel)
         }
     }
     
