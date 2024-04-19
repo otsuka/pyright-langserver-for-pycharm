@@ -15,6 +15,7 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 * Go-to-definition support is now configurable and disabled by default.
   Previously this was always enabled.
+* The log level is now configurable.
 
 
 ## [0.2.0] - 2024-04-16

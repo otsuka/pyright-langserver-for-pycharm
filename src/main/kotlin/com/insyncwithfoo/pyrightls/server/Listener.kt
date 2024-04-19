@@ -1,5 +1,6 @@
 package com.insyncwithfoo.pyrightls.server
 
+import com.insyncwithfoo.pyrightls.pyrightLSConfigurations
 import com.insyncwithfoo.pyrightls.sdkPath
 import com.intellij.openapi.project.Project
 import com.intellij.platform.lsp.api.LspServerListener
@@ -9,8 +10,14 @@ import org.eclipse.lsp4j.InitializeResult
 
 
 private fun Project.createPyrightLSSettingsObject() = Settings {
+    val configurations = pyrightLSConfigurations
+    
     python {
         pythonPath = sdkPath?.toString()
+        
+        analysis {
+            logLevel = configurations.logLevel.label
+        }
     }
 }
 

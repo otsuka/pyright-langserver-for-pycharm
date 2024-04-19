@@ -1,6 +1,24 @@
 package com.insyncwithfoo.pyrightls.server
 
 
+class Analysis {
+    var logLevel: String? = null
+}
+
+
+internal class Python {
+    
+    private val analysis = Analysis()
+    
+    var pythonPath: String? = null
+    
+    fun analysis(block: Analysis.() -> Unit) {
+        analysis.apply(block)
+    }
+    
+}
+
+
 internal class Settings(block: Settings.() -> Unit) {
     
     private val python = Python()
@@ -12,9 +30,5 @@ internal class Settings(block: Settings.() -> Unit) {
     fun python(block: Python.() -> Unit) {
         python.apply(block)
     }
-    
-    internal class Python(
-        var pythonPath: String? = null
-    )
     
 }

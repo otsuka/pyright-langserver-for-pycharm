@@ -20,10 +20,10 @@ internal class PyrightLSDescriptor(
     
     override val lspServerListener = Listener(project)
     
-    override val lspCompletionSupport = CompletionSupport().takeIf { configurations.completionSupport }
-    override val lspDiagnosticsSupport = DiagnosticsSupport(project)
     override val lspGoToDefinitionSupport = configurations.goToDefinitionSupport
     override val lspHoverSupport = configurations.hoverSupport
+    override val lspCompletionSupport = CompletionSupport().takeIf { configurations.completionSupport }
+    override val lspDiagnosticsSupport = DiagnosticsSupport(project)
     
     override fun isSupportedFile(file: VirtualFile) = file.extension == "py"
     

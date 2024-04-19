@@ -31,6 +31,20 @@ You might need to reopen your files or restart the IDE
 for the files to be recognized by the language server.
 
 
+## Logging
+
+You are strongly encouraged to enable logging.
+This will allow corresponding logs to be recorded in `idea.log`
+for further analysis should a problem arises.
+
+Add the following line to the <b>Help</b> | <b>Diagnostic Tools</b> |
+<b>Debug Log Settings</b> panel:
+
+```text
+#com.intellij.platform.lsp
+```
+
+
   [1]: https://github.com/microsoft/pyright
   [2]: https://plugins.jetbrains.com/docs/intellij/language-server-protocol.html
   [3]: https://github.com/InSyncWithFoo/pyright-for-pycharm

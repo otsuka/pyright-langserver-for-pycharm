@@ -8,12 +8,16 @@ import com.insyncwithfoo.pyrightls.configuration.onInput
 import com.insyncwithfoo.pyrightls.configuration.prefilledWithRandomPlaceholder
 import com.insyncwithfoo.pyrightls.configuration.secondColumnPathInput
 import com.insyncwithfoo.pyrightls.message
+import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
+import com.intellij.ui.SimpleListCellRenderer
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.dsl.builder.Cell
 import com.intellij.ui.dsl.builder.Row
+import com.intellij.ui.dsl.builder.bindItem
 import com.intellij.ui.dsl.builder.bindSelected
 import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.builder.toNullableProperty
 
 
 private fun relativePathHint() =
@@ -50,6 +54,15 @@ private fun Row.makeCompletionSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
 
 private fun Row.makeGoToDefinitionSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
     checkBox(message("configurations.global.goToDefinitionSupport.label")).apply(block)
+
+
+private fun Row.makeLogLevelInput(block: Cell<ComboBox<LogLevel>>.() -> Unit) = run {
+    val renderer = SimpleListCellRenderer.create<LogLevel> { label, value, _ ->
+        label.text = value.label
+    }
+    
+    comboBox(LogLevel.entries, renderer).apply(block)
+}
 
 
 @Suppress("DialogTitleCapitalization")
@@ -91,6 +104,9 @@ internal fun configurationPanel(state: Configurations) = panel {
             makeHoverSupportInput { bindSelected(state::hoverSupport) }
             makeCompletionSupportInput { bindSelected(state::completionSupport) }
             makeGoToDefinitionSupportInput { bindSelected(state::goToDefinitionSupport) }
+        }
+        row(message("configurations.global.logLevel.label")) {
+            makeLogLevelInput { bindItem(state::logLevel.toNullableProperty()) }
         }
     }
     

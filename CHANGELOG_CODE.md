@@ -15,10 +15,15 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 ### Added
 
 * [`PyrightLSDescriptor`][30-1]'s `.lspGoToDefinitionSupport`
-  is overridden to respect the corresponding user-provided values. (HEAD)
+  is overridden to respect the corresponding user-provided values. (2a2a4f29)
+* The "Log level" global configuration, which corresponds to
+  Pyright's `python.analysis.logLevel` option, is added.
+  [`Settings.kt`][30-2] is rewritten.
+  (HEAD)
 
 
-  [30-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
+  [30-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/2a2a4f29/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
+  [30-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt 
 
 
 ## [0.2.0] - 2024-04-16
