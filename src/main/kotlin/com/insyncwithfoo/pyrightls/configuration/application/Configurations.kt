@@ -5,10 +5,10 @@ import com.intellij.openapi.components.BaseState
 
 
 internal enum class LogLevel(val label: String) {
-    ERROR(message("configurations.global.logLevel.error")),
-    WARNING(message("configurations.global.logLevel.warning")),
-    INFORMATION(message("configurations.global.logLevel.information")),
-    TRACE(message("configurations.global.logLevel.trace"));
+    ERROR(message("configurations.logLevel.error")),
+    WARNING(message("configurations.logLevel.warning")),
+    INFORMATION(message("configurations.logLevel.information")),
+    TRACE(message("configurations.logLevel.trace"));
 }
 
 

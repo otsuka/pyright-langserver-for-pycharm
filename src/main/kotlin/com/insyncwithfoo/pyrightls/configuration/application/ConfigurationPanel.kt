@@ -25,7 +25,7 @@ private fun relativePathHint() =
 
 
 private fun Row.makeAlwaysUseGlobalInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.global.alwaysUseGlobal.label")).apply(block)
+    checkBox(message("configurations.alwaysUseGlobal.label")).apply(block)
 
 
 private fun Row.makeGlobalExecutableInput(block: Cell<TextFieldWithBrowseButton>.() -> Unit) =
@@ -33,27 +33,27 @@ private fun Row.makeGlobalExecutableInput(block: Cell<TextFieldWithBrowseButton>
 
 
 private fun Row.makeUseEditorFontInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.global.useEditorFont.label")).apply(block)
+    checkBox(message("configurations.useEditorFont.label")).apply(block)
 
 
 private fun Row.makeAddTooltipPrefixInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.global.addTooltipPrefix.label")).apply(block)
+    checkBox(message("configurations.addTooltipPrefix.label")).apply(block)
 
 
 private fun Row.makeLinkErrorCodesInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.global.linkErrorCodes.label")).apply(block)
+    checkBox(message("configurations.linkErrorCodes.label")).apply(block)
 
 
 private fun Row.makeHoverSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.global.hoverSupport.label")).apply(block)
+    checkBox(message("configurations.hoverSupport.label")).apply(block)
 
 
 private fun Row.makeCompletionSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.global.completionSupport.label")).apply(block)
+    checkBox(message("configurations.completionSupport.label")).apply(block)
 
 
 private fun Row.makeGoToDefinitionSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.global.goToDefinitionSupport.label")).apply(block)
+    checkBox(message("configurations.goToDefinitionSupport.label")).apply(block)
 
 
 private fun Row.makeLogLevelInput(block: Cell<ComboBox<LogLevel>>.() -> Unit) = run {
@@ -73,7 +73,7 @@ internal fun configurationPanel(state: Configurations) = panel {
         makeAlwaysUseGlobalInput { bindSelected(state::alwaysUseGlobal) }
     }
     
-    row(message("configurations.global.globalExecutable.label")) {
+    row(message("configurations.globalExecutable.label")) {
         makeGlobalExecutableInput {
             onInput(::displayPathHint) { path ->
                 when {
@@ -87,7 +87,7 @@ internal fun configurationPanel(state: Configurations) = panel {
         }
     }
     
-    group(message("configurations.global.group.tooltips")) {
+    group(message("configurations.group.tooltips")) {
         row {
             makeUseEditorFontInput { bindSelected(state::useEditorFont) }
         }
@@ -99,13 +99,13 @@ internal fun configurationPanel(state: Configurations) = panel {
         }
     }
     
-    group(message("configurations.global.group.languageServer")) {
+    group(message("configurations.group.languageServer")) {
         row {
             makeHoverSupportInput { bindSelected(state::hoverSupport) }
             makeCompletionSupportInput { bindSelected(state::completionSupport) }
             makeGoToDefinitionSupportInput { bindSelected(state::goToDefinitionSupport) }
         }
-        row(message("configurations.global.logLevel.label")) {
+        row(message("configurations.logLevel.label")) {
             makeLogLevelInput { bindItem(state::logLevel.toNullableProperty()) }
         }
     }

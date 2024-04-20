@@ -31,7 +31,7 @@ private fun Row.makeProjectExecutableInput(block: Cell<TextFieldWithBrowseButton
 
 
 private fun Row.makeAutoSuggestExecutableInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.project.autoSuggestExecutable.label")).apply(block)
+    checkBox(message("configurations.autoSuggestExecutable.label")).apply(block)
 
 
 private fun Row.makeWorkspaceFoldersInput(block: Cell<ComboBox<WorkspaceFolders>>.() -> Unit) = run {
@@ -50,7 +50,7 @@ internal fun Configurable.configurationPanel(state: Configurations) = panel {
         makeAutoSuggestExecutableInput { bindSelected(state::autoSuggestExecutable) }
     }
     
-    row(message("configurations.project.projectExecutable.label")) {
+    row(message("configurations.projectExecutable.label")) {
         makeProjectExecutableInput {
             onInput(::displayPathHint) { path ->
                 when {
@@ -65,8 +65,8 @@ internal fun Configurable.configurationPanel(state: Configurations) = panel {
     }
     
     @Suppress("DialogTitleCapitalization")
-    group(message("configurations.global.group.languageServer")) {
-        row(message("configurations.project.workspaceFolders.label")) {
+    group(message("configurations.group.languageServer")) {
+        row(message("configurations.workspaceFolders.label")) {
             makeWorkspaceFoldersInput { bindItem(state::workspaceFolders.toNullableProperty()) }
         }
     }

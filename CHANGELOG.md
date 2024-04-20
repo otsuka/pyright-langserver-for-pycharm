@@ -16,6 +16,11 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * Go-to-definition support is now configurable and disabled by default.
   Previously this was always enabled.
 * The log level is now configurable.
+* Source roots can now be passed to the language server
+  as "workspace folders" in lieu of the project's base directories
+  (which has been and still is the default option).
+  This is useful if you have your `pyproject.toml` or `pyrightconfig.json`
+  files placed somewhere other than the project root (for example, a monorepo).
 
 
 ## [0.2.0] - 2024-04-16

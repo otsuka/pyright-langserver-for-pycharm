@@ -5,8 +5,8 @@ import com.intellij.openapi.components.BaseState
 
 
 internal enum class WorkspaceFolders(val label: String) {
-    PROJECT_BASE(message("configurations.project.workspaceFolders.projectBase")),
-    SOURCE_ROOTS(message("configurations.project.workspaceFolders.sourceRoots"));
+    PROJECT_BASE(message("configurations.workspaceFolders.projectBase")),
+    SOURCE_ROOTS(message("configurations.workspaceFolders.sourceRoots"));
 }
 
 
