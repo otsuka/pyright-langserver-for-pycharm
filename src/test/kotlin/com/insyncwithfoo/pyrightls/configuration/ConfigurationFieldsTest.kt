@@ -24,7 +24,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - application`() {
         val configurations = ApplicationConfigurations()
         
-        assertEquals(9, applicationFields().size)
+        assertEquals(10, applicationFields().size)
         
         configurations.run {
             assertEquals(false, alwaysUseGlobal)
@@ -37,6 +37,7 @@ class ConfigurationFieldsTest : TestCase() {
             assertEquals(false, completionSupport)
             assertEquals(false, goToDefinitionSupport)
             assertEquals(LogLevel.INFORMATION, logLevel)
+            assertEquals(true, taggedHints)
         }
     }
     

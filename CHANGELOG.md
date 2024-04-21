@@ -21,6 +21,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
   (which has been and still is the default option).
   This is useful if you have your `pyproject.toml` or `pyrightconfig.json`
   files placed somewhere other than the project root (for example, a monorepo).
+* "Unnecessary" and "Deprecated" hints, which are displayed as
+  faded-out and striken-through in the IDE, can now be disabled.
+  Previously this was always enabled.
+* UI components are slightly changed.
 
 
 ## [0.2.0] - 2024-04-16

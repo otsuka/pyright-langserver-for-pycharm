@@ -65,6 +65,10 @@ private fun Row.makeLogLevelInput(block: Cell<ComboBox<LogLevel>>.() -> Unit) = 
 }
 
 
+private fun Row.makeTaggedHintsInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.taggedHints.label")).apply(block)
+
+
 @Suppress("DialogTitleCapitalization")
 internal fun configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
@@ -100,13 +104,20 @@ internal fun configurationPanel(state: Configurations) = panel {
     }
     
     group(message("configurations.group.languageServer")) {
-        row {
-            makeHoverSupportInput { bindSelected(state::hoverSupport) }
-            makeCompletionSupportInput { bindSelected(state::completionSupport) }
-            makeGoToDefinitionSupportInput { bindSelected(state::goToDefinitionSupport) }
+        group(message("configurations.group.languageServer.client")) {
+            row {
+                makeHoverSupportInput { bindSelected(state::hoverSupport) }
+                makeCompletionSupportInput { bindSelected(state::completionSupport) }
+                makeGoToDefinitionSupportInput { bindSelected(state::goToDefinitionSupport) }
+            }
         }
-        row(message("configurations.logLevel.label")) {
-            makeLogLevelInput { bindItem(state::logLevel.toNullableProperty()) }
+        group(message("configurations.group.languageServer.server")) {
+            row {
+                makeTaggedHintsInput { bindSelected(state::taggedHints) }
+            }
+            row(message("configurations.logLevel.label")) {
+                makeLogLevelInput { bindItem(state::logLevel.toNullableProperty()) }
+            }
         }
     }
     

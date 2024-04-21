@@ -23,4 +23,5 @@ internal class Configurations : BaseState() {
     var completionSupport by property(false)
     var goToDefinitionSupport by property(false)
     var logLevel by enum(LogLevel.INFORMATION)
+    var taggedHints by property(true)
 }

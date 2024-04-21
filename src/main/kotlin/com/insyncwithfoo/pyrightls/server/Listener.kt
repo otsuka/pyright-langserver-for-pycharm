@@ -19,6 +19,10 @@ private fun Project.createPyrightLSSettingsObject() = Settings {
             logLevel = configurations.logLevel.label
         }
     }
+    
+    pyright {
+        disableTaggedHints = !configurations.taggedHints
+    }
 }
 
 

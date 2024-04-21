@@ -19,9 +19,15 @@ internal class Python {
 }
 
 
+internal class Pyright {
+    var disableTaggedHints: Boolean? = null
+}
+
+
 internal class Settings(block: Settings.() -> Unit) {
     
     private val python = Python()
+    private val pyright = Pyright()
     
     init {
         this.apply(block)
@@ -29,6 +35,10 @@ internal class Settings(block: Settings.() -> Unit) {
     
     fun python(block: Python.() -> Unit) {
         python.apply(block)
+    }
+    
+    fun pyright(block: Pyright.() -> Unit) {
+        pyright.apply(block)
     }
     
 }

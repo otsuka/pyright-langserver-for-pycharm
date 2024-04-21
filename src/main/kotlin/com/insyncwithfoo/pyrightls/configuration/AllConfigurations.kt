@@ -18,6 +18,7 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
         completionSupport = this.completionSupport,
         goToDefinitionSupport = this.goToDefinitionSupport,
         logLevel = this.logLevel,
+        taggedHints = this.taggedHints,
         
         projectExecutable = other.projectExecutable,
         autoSuggestExecutable = other.autoSuggestExecutable,
@@ -35,6 +36,7 @@ internal data class AllConfigurations(
     val completionSupport: Boolean,
     val goToDefinitionSupport: Boolean,
     val logLevel: LogLevel,
+    val taggedHints: Boolean,
     
     val projectExecutable: @SystemDependent String?,
     val autoSuggestExecutable: Boolean,
