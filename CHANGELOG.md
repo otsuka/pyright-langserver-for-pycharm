@@ -25,6 +25,8 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
   faded-out and striken-through in the IDE, can now be disabled.
   Previously this was always enabled.
 * UI components are slightly changed.
+* The language server can now be configured to not offer
+  auto-import completions. Previously this was always enabled.
 
 
 ## [0.2.0] - 2024-04-16

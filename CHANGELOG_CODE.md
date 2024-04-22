@@ -19,14 +19,15 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * The "Log level" global configuration, which corresponds to
   Pyright's `python.analysis.logLevel` option, is added.
   [`Settings.kt`][30-2] is rewritten.
-  (1c937fb6)
+  (1c937fb6, HEAD)
 * Project option "Workspace folders" is added. (5e35f935)
 * [Message key names][30-3] are slightly changed. (6b6b2a56)
-* Global option "Disable tagged hints" is added. (HEAD)
+* Global option "Disable tagged hints" is added. (cd9dc597)
+* Global option "Auto import completions" is added. (HEAD)
 
 
   [30-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/2a2a4f29/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
-  [30-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/1c937fb6/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
+  [30-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
   [30-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b6b2a56/src/main/resources/messages/pyrightls.properties
 
 

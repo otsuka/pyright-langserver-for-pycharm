@@ -24,4 +24,5 @@ internal class Configurations : BaseState() {
     var goToDefinitionSupport by property(false)
     var logLevel by enum(LogLevel.INFORMATION)
     var taggedHints by property(true)
+    var autoImportCompletions by property(true)
 }

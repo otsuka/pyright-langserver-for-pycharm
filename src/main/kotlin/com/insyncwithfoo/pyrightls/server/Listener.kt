@@ -17,6 +17,7 @@ private fun Project.createPyrightLSSettingsObject() = Settings {
         
         analysis {
             logLevel = configurations.logLevel.label
+            autoImportCompletions = configurations.autoImportCompletions
         }
     }
     

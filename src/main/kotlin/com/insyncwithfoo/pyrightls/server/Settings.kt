@@ -1,11 +1,6 @@
 package com.insyncwithfoo.pyrightls.server
 
 
-class Analysis {
-    var logLevel: String? = null
-}
-
-
 internal class Python {
     
     private val analysis = Analysis()
@@ -14,6 +9,11 @@ internal class Python {
     
     fun analysis(block: Analysis.() -> Unit) {
         analysis.apply(block)
+    }
+    
+    internal class Analysis {
+        var logLevel: String? = null
+        var autoImportCompletions: Boolean? = null
     }
     
 }
