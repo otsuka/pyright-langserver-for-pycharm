@@ -12,6 +12,11 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [0.3.0] - 2024-04-24
+
 ### Added
 
 * [`PyrightLSDescriptor`][30-1]'s `.lspGoToDefinitionSupport`
@@ -23,11 +28,11 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project option "Workspace folders" is added. (5e35f935)
 * [Message key names][30-3] are slightly changed. (6b6b2a56)
 * Global option "Disable tagged hints" is added. (cd9dc597)
-* Global option "Auto import completions" is added. (HEAD)
+* Global option "Auto import completions" is added. (d4814c3a)
 
 
   [30-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/2a2a4f29/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
-  [30-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
+  [30-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/d4814c3a/src/main/kotlin/com/insyncwithfoo/pyrightls/server/Settings.kt
   [30-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b6b2a56/src/main/resources/messages/pyrightls.properties
 
 
@@ -204,7 +209,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.2.0..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.3.0..HEAD
+  [0.3.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.2.0..v0.3.0
   [0.2.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0..v0.2.0
   [0.1.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0-poc.4..v0.1.0
   [0.1.0-poc.4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0-poc.3..v0.1.0-poc.4

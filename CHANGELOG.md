@@ -11,6 +11,11 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [0.3.0] - 2024-04-24
+
 ### Added
 
 * Go-to-definition support is now configurable and disabled by default.
@@ -24,9 +29,9 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * "Unnecessary" and "Deprecated" hints, which are displayed as
   faded-out and striken-through in the IDE, can now be disabled.
   Previously this was always enabled.
-* UI components are slightly changed.
 * The language server can now be configured to not offer
   auto-import completions. Previously this was always enabled.
+* UI components are slightly changed.
 
 
 ## [0.2.0] - 2024-04-16
@@ -36,7 +41,7 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * Highlight severity levels are now configurable
   using the options provided in the <i>Inspection</i> panel.
   The inspection is renamed to "Pyright language server diagnostics".
-* Hover support can now be disabled.
+* Hover support can now be disabled. Previously this was always enabled.
 * Completion support is now configurable and disabled by default.
   Previously this was always enabled.
 
@@ -107,7 +112,8 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.2.0..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.3.0..HEAD
+  [0.3.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.2.0..v0.3.0
   [0.2.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0..v0.2.0
   [0.1.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0-poc.4..v0.1.0
   [0.1.0-poc.4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0-poc.3..v0.1.0-poc.4
