@@ -12,7 +12,14 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Changed
+
+* [The Qodana Gradle plugin][40-1] and its corresponding action
+  [@JetBrains/qodana-action][40-2] are updated to 2023.4.1. (647bd2d5, 26a9fcf9)
+
+
+  [40-1]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
+  [40-2]: https://github.com/JetBrains/qodana-action
 
 
 ## [0.3.0] - 2024-04-24
