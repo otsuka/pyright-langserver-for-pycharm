@@ -12,15 +12,21 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* [`PyrightLSDescriptor`][40-1] now logs all configurations on initialization.
+  (HEAD)
+
 ### Changed
 
-* [The Qodana Gradle plugin][40-1] and its corresponding action
-  [@JetBrains/qodana-action][40-2] are updated to 2024.4.2.
+* [The Qodana Gradle plugin][40-2] and its corresponding action
+  [@JetBrains/qodana-action][40-3] are updated to 2024.4.2.
   (647bd2d5, 26a9fcf9, b952ef10, 1ae17a00)
 
 
-  [40-1]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
-  [40-2]: https://github.com/JetBrains/qodana-action
+  [40-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
+  [40-2]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
+  [40-3]: https://github.com/JetBrains/qodana-action
 
 
 ## [0.3.0] - 2024-04-24
@@ -32,7 +38,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * The "Log level" global configuration, which corresponds to
   Pyright's `python.analysis.logLevel` option, is added.
   [`Settings.kt`][30-2] is rewritten.
-  (1c937fb6, HEAD)
+  (1c937fb6, d4814c3a)
 * Project option "Workspace folders" is added. (5e35f935)
 * [Message key names][30-3] are slightly changed. (6b6b2a56)
 * Global option "Disable tagged hints" is added. (cd9dc597)

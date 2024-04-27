@@ -5,6 +5,7 @@ import com.insyncwithfoo.pyrightls.message
 import com.insyncwithfoo.pyrightls.path
 import com.insyncwithfoo.pyrightls.pyrightLSConfigurations
 import com.intellij.execution.configurations.GeneralCommandLine
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.BaseProjectDirectories.Companion.getBaseDirectories
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.modules
@@ -47,6 +48,10 @@ internal class PyrightLSDescriptor(project: Project, private val executable: Pat
     override val lspCompletionSupport = CompletionSupport().takeIf { configurations.completionSupport }
     override val lspDiagnosticsSupport = DiagnosticsSupport(project)
     
+    init {
+        LOGGER.info(configurations.toString())
+    }
+    
     override fun isSupportedFile(file: VirtualFile) = file.extension == "py"
     
     override fun createCommandLine() =
@@ -57,6 +62,7 @@ internal class PyrightLSDescriptor(project: Project, private val executable: Pat
     
     companion object {
         val PRESENTABLE_NAME = message("languageServer.representableName")
+        private val LOGGER = Logger.getInstance(DiagnosticsSupport::class.java)
     }
     
 }
