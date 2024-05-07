@@ -1,5 +1,6 @@
 package com.insyncwithfoo.pyrightls.configuration
 
+import com.insyncwithfoo.pyrightls.isProbablyPyrightLSExecutable
 import com.insyncwithfoo.pyrightls.message
 import com.intellij.icons.ExpUiIcons
 import java.nio.file.Path
@@ -46,6 +47,8 @@ internal fun executablePathResolvingHint(path: Path) = when {
     // Uncomment the following if it is asked for.
     // !path.isExecutable() ->
     //     Hint.warning(message("configurations.hint.fileNotExecutable"))
+    !path.isProbablyPyrightLSExecutable ->
+        Hint.info(message("configurations.hint.unknownExecutable"))
     else ->
         Hint.success(message("configurations.hint.fileFound"))
 }

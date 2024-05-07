@@ -2,6 +2,14 @@ package com.insyncwithfoo.pyrightls
 
 import java.nio.file.InvalidPathException
 import java.nio.file.Path
+import kotlin.io.path.nameWithoutExtension
+
+
+private val KNOWN_EXECUTABLE_FILENAMES = listOf(
+    "pyright-langserver",
+    "pyright-python-langserver",
+    "basedpyright-langserver"
+)
 
 
 internal fun String.toPathOrNull() =
@@ -18,3 +26,7 @@ internal val Path.isEmpty: Boolean
 
 internal fun Path.resolvedAgainst(base: Path?) =
     base?.resolve(this) ?: this
+
+
+internal val Path.isProbablyPyrightLSExecutable: Boolean
+    get() = nameWithoutExtension in KNOWN_EXECUTABLE_FILENAMES
