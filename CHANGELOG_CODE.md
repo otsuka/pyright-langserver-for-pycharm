@@ -21,9 +21,11 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 * [The Qodana Gradle plugin][40-2] and its corresponding action
   [@JetBrains/qodana-action][40-3] are updated to 2024.1.4.
-  (647bd2d5, 26a9fcf9, b952ef10, 1ae17a00, bed1cfe6, HEAD)
+  (647bd2d5, 26a9fcf9, b952ef10, 1ae17a00, bed1cfe6, 6bd68dfd)
 * A new branch is added to [`executablePathResolvingHint()`][40-4]. (906f7abe)
 * [Kotlin JVM plugin][40-5] is updated to 1.9.24. (0e28e9ae)
+* `RoamingType.LOCAL` is used for [application-level configurations][40-6]
+  instead of `RoamingType.DISABLED`. (HEAD)
 
 
   [40-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/501b9cea/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
@@ -31,6 +33,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   [40-3]: https://github.com/JetBrains/qodana-action
   [40-4]: https://github.com/InSyncWithFoo/pyright-for-pycharm/blob/906f7abe/src/main/kotlin/com/insyncwithfoo/pyright/configuration/PathResolvingHint.kt
   [40-5]: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
+  [40-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/application/ConfigurationService.kt
 
 
 ## [0.3.0] - 2024-04-24
