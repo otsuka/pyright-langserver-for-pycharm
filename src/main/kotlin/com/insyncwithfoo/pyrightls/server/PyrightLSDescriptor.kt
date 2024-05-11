@@ -62,7 +62,7 @@ internal class PyrightLSDescriptor(project: Project, private val executable: Pat
     
     companion object {
         val PRESENTABLE_NAME = message("languageServer.representableName")
-        private val LOGGER = Logger.getInstance(DiagnosticsSupport::class.java)
+        private val LOGGER = Logger.getInstance(PyrightLSDescriptor::class.java)
     }
     
 }

@@ -11,12 +11,12 @@ import kotlin.io.path.listDirectoryEntries
 import kotlin.io.path.nameWithoutExtension
 
 
-internal val Project.path: Path?
-    get() = basePath?.let { Path.of(it) }
-
-
 private val Project.sdk: Sdk?
     get() = ProjectRootManager.getInstance(this).projectSdk
+
+
+internal val Project.path: Path?
+    get() = basePath?.let { Path.of(it) }
 
 
 internal val Project.sdkPath: Path?
