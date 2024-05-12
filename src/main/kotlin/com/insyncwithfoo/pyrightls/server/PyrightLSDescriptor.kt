@@ -21,18 +21,15 @@ private fun Project.getModuleSourceRoots(): Collection<VirtualFile> =
     }
 
 
-private fun Project.getWorkspaceFolders(type: WorkspaceFolders): Collection<VirtualFile> {
-    return when (type) {
-        WorkspaceFolders.PROJECT_BASE -> this.getBaseDirectories()
-        WorkspaceFolders.SOURCE_ROOTS -> this.getModuleSourceRoots()
+private fun Project.getWorkspaceFolders(type: WorkspaceFolders): Collection<VirtualFile> =
+    when (type) {
+        WorkspaceFolders.PROJECT_BASE -> getBaseDirectories()
+        WorkspaceFolders.SOURCE_ROOTS -> getModuleSourceRoots()
     }
-}
 
 
-private fun Project.getWorkspaceFolders(): Collection<VirtualFile> {
-    val configurations = this.pyrightLSConfigurations
-    return this.getWorkspaceFolders(configurations.workspaceFolders)
-}
+private fun Project.getWorkspaceFolders(): Collection<VirtualFile> =
+    getWorkspaceFolders(pyrightLSConfigurations.workspaceFolders)
 
 
 @Suppress("UnstableApiUsage")
