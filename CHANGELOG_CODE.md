@@ -26,6 +26,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [Kotlin JVM plugin][40-5] is updated to 1.9.24. (0e28e9ae)
 * `RoamingType.LOCAL` is used for [application-level configurations][40-6]
   instead of `RoamingType.DISABLED`. (ac6bf02a)
+* The "Run Plugin" task now runs with the new UI enabled and
+  the `.idea`subdirectory not hidden. (HEAD)
 
 
   [40-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/501b9cea/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
