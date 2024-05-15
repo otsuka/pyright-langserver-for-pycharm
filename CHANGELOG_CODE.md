@@ -17,7 +17,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [`PyrightLSDescriptor`][40-1] now logs all configurations on initialization.
   (501b9cea)
 * Diagnostics-related construct, including those newly added for quick fixes,
-  are moved to the [`.diagnostics`][40-2] module. (HEAD)
+  are moved to the [`.diagnostics`][40-2] module. (a95bea0f)
 
 ### Changed
 
@@ -33,7 +33,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 
   [40-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/501b9cea/src/main/kotlin/com/insyncwithfoo/pyrightls/server/PyrightLSDescriptor.kt
-  [40-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/diagnostics
+  [40-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/a95bea0f/src/main/kotlin/com/insyncwithfoo/pyrightls/server/diagnostics
   [40-3]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
   [40-4]: https://github.com/JetBrains/qodana-action
   [40-5]: https://github.com/InSyncWithFoo/pyright-for-pycharm/blob/906f7abe/src/main/kotlin/com/insyncwithfoo/pyright/configuration/PathResolvingHint.kt
