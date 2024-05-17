@@ -12,7 +12,17 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Changed
+
+* [The Kover Gradle Plugin][50-1] is updated to 0.8.0. (8d034a20)
+* [The Qodana Gradle plugin][50-2] and its corresponding action
+  [@JetBrains/qodana-action][50-3] are updated to 2024.1.5.
+  (85c78a93)
+
+
+  [50-1]: https://github.com/Kotlin/kotlinx-kover
+  [50-2]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
+  [50-3]: https://github.com/JetBrains/qodana-action
 
 
 ## [0.4.0] - 2024-05-15
