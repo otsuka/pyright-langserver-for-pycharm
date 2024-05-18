@@ -59,7 +59,7 @@ You can also download the ZIP files manually from [the <i>Releases</i> tab][6]
 or [the <i>Actions</i> tab][7] and follow the instructions described [here][8].
 
 Currently supported versions:
-2024.1 (build 241.14494.241) - 2024.1.* (build 241.*).
+2024.1 (build 241.14494.241) - 2024.2.* (build 242.*).
 
 
 ## Credits

@@ -12,6 +12,10 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* The plugin now supports 2024.2. (HEAD)
+
 ### Changed
 
 * [The Kover Gradle Plugin][50-1] is updated to 0.8.0. (8d034a20)
