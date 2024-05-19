@@ -11,6 +11,7 @@ import kotlin.io.path.isDirectory
 internal enum class HintIcon {
     Success, Info, Warning, Error;
     
+    @Suppress("UnstableApiUsage")
     override fun toString() = """<icon src="${ExpUiIcons.Status::class.qualifiedName}.$name">"""
 }
 

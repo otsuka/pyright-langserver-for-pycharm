@@ -22,7 +22,7 @@ private val CompletionItem.isCallable: Boolean
 
 
 @Suppress("UnstableApiUsage")
-class CompletionSupport(project: Project) : LspCompletionSupport() {
+internal class CompletionSupport(project: Project) : LspCompletionSupport() {
     
     private val configurations = project.pyrightLSConfigurations
     

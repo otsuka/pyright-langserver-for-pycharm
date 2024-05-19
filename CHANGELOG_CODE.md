@@ -14,7 +14,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Added
 
-* The plugin now supports 2024.2. (HEAD)
+* The plugin now supports 2024.2. (b76af8fe)
+* Global option "Autocomplete parentheses" is added. (164141b1)
 
 ### Changed
 

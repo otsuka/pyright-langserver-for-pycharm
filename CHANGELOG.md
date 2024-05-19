@@ -11,7 +11,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Added
+
+* Functions, methods and constructors
+  can now be autocompleted with parentheses.
 
 
 ## [0.4.0] - 2024-05-15

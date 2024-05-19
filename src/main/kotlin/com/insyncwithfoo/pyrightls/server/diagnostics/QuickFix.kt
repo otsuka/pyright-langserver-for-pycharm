@@ -30,7 +30,7 @@ private fun PsiFile.edit(callback: (Document) -> Unit) {
 }
 
 
-class SuppressQuickFix(
+internal class SuppressQuickFix(
     private val code: PyrightErrorCode?,
     private val range: TextRange
 ) : IntentionAction {
