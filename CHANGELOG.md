@@ -15,6 +15,8 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 * Functions, methods and constructors
   can now be autocompleted with parentheses.
+* Auto-import completions now use the source as the supporting detail.
+  Previously the detail was "Auto-import" or a similar localized message.
 
 
 ## [0.4.0] - 2024-05-15

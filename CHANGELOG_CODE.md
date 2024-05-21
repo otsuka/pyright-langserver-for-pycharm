@@ -23,11 +23,16 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [The Qodana Gradle plugin][50-2] and its corresponding action
   [@JetBrains/qodana-action][50-3] are updated to 2024.1.5.
   (85c78a93)
+* Another conditional was added to
+  [`CompletionSupport.createLookupElement`][50-4]
+  to use the source of an auto-import completion as its detail.
+  (4cef2a5d, HEAD)
 
 
   [50-1]: https://github.com/Kotlin/kotlinx-kover
   [50-2]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
   [50-3]: https://github.com/JetBrains/qodana-action
+  [50-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/CompletionSupport.kt
 
 
 ## [0.4.0] - 2024-05-15

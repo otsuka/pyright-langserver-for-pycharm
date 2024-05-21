@@ -35,9 +35,9 @@ private fun CompletionItem.completeWithParentheses() {
 }
 
 
-private fun CompletionItem.useSourceAsDetail() {
+private fun CompletionItem.useSourceAsDetailIfPossible() {
     // https://github.com/microsoft/pyright/blob/0b7860b/packages/pyright-internal/src/languageService/completionProvider.ts#L932-L934
-    detail = labelDetails.description
+    detail = labelDetails?.description ?: ""
 }
 
 
@@ -52,7 +52,7 @@ internal class CompletionSupport(project: Project) : LspCompletionSupport() {
         }
         
         if (item.isAutoImportCompletion) {
-            item.useSourceAsDetail()
+            item.useSourceAsDetailIfPossible()
         }
         
         return super.createLookupElement(parameters, item)
