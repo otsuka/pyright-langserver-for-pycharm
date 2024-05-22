@@ -32,6 +32,10 @@ private val Project.pyrightLSExecutable: Path?
     }
 
 
+internal val VirtualFile.isSupported: Boolean
+    get() = extension == "py"
+
+
 @Suppress("UnstableApiUsage")
 internal class PyrightLSSupportProvider : LspServerSupportProvider {
     
@@ -40,7 +44,7 @@ internal class PyrightLSSupportProvider : LspServerSupportProvider {
         file: VirtualFile,
         serverStarter: LspServerSupportProvider.LspServerStarter
     ) {
-        if (file.extension == "py" && project.isPyrightLSEnabled) {
+        if (file.isSupported && project.isPyrightLSEnabled) {
             val executable = project.pyrightLSExecutable?.takeIf { it.exists() } ?: return
             val descriptor = PyrightLSDescriptor(project, executable)
             

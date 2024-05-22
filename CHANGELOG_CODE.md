@@ -16,7 +16,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 * The plugin now supports 2024.2. (b76af8fe)
 * Global option "Autocomplete parentheses" is added. (164141b1)
-* Global option "Diagnostics support" is added. (HEAD)
+* Global option "Diagnostics support" is added. (20ee9ba9)
 
 ### Changed
 
