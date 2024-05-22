@@ -24,7 +24,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - application`() {
         val configurations = ApplicationConfigurations()
         
-        assertEquals(12, applicationFields().size)
+        assertEquals(13, applicationFields().size)
         
         configurations.run {
             assertEquals(false, alwaysUseGlobal)
@@ -40,6 +40,7 @@ class ConfigurationFieldsTest : TestCase() {
             assertEquals(true, taggedHints)
             assertEquals(true, autoImportCompletions)
             assertEquals(false, autocompleteParentheses)
+            assertEquals(true, diagnosticsSupport)
         }
     }
     

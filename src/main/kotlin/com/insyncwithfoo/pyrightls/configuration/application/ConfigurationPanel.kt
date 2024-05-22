@@ -77,6 +77,10 @@ private fun Row.makeAutoImportCompletionsInput(block: Cell<JBCheckBox>.() -> Uni
     checkBox(message("configurations.autoImportCompletions.label")).apply(block)
 
 
+private fun Row.makeDiagnosticsSupportInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.diagnosticsSupport.label")).apply(block)
+
+
 @Suppress("DialogTitleCapitalization")
 internal fun configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
@@ -112,26 +116,38 @@ internal fun configurationPanel(state: Configurations) = panel {
     }
     
     group(message("configurations.group.languageServer")) {
-        buttonsGroup(message("configurations.group.languageServer.client")) {
+        row {
+            makeCompletionSupportInput { bindSelected(state::completionSupport) }
+        }
+        indent {
             row {
-                makeHoverSupportInput { bindSelected(state::hoverSupport) }
-                makeCompletionSupportInput { bindSelected(state::completionSupport) }
-                makeGoToDefinitionSupportInput { bindSelected(state::goToDefinitionSupport) }
+                makeAutoImportCompletionsInput { bindSelected(state::autoImportCompletions) }
             }
             row {
                 makeAutocompleteParenthesesInput { bindSelected(state::autocompleteParentheses) }
             }
         }
-        buttonsGroup(message("configurations.group.languageServer.server")) {
+        
+        row {
+            makeDiagnosticsSupportInput { bindSelected(state::diagnosticsSupport) }
+        }
+        indent {
             row {
                 makeTaggedHintsInput { bindSelected(state::taggedHints) }
             }
-            row {
-                makeAutoImportCompletionsInput { bindSelected(state::autoImportCompletions) }
-            }
-            row(message("configurations.logLevel.label")) {
-                makeLogLevelInput { bindItem(state::logLevel.toNullableProperty()) }
-            }
+        }
+        
+        row {
+            makeHoverSupportInput { bindSelected(state::hoverSupport) }
+        }
+        row {
+            makeGoToDefinitionSupportInput { bindSelected(state::goToDefinitionSupport) }
+        }
+        
+        separator()
+        
+        row(message("configurations.logLevel.label")) {
+            makeLogLevelInput { bindItem(state::logLevel.toNullableProperty()) }
         }
     }
     

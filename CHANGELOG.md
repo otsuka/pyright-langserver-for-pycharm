@@ -17,6 +17,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
   can now be autocompleted with parentheses.
 * Auto-import completions now use the source as the supporting detail.
   Previously the detail was "Auto-import" or a similar localized message.
+* Diagnostics support can now be disabled separately.
+  Previously the only way to do so would be to disable
+  the entire language server by disabling the corresponding inspection.
+* UI components are slightly changed.
 
 
 ## [0.4.0] - 2024-05-15

@@ -26,4 +26,5 @@ internal class Configurations : BaseState() {
     var taggedHints by property(true)
     var autoImportCompletions by property(true)
     var autocompleteParentheses by property(false)
+    var diagnosticsSupport by property(true)
 }

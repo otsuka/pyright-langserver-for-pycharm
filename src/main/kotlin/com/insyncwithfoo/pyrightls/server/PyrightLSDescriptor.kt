@@ -44,7 +44,7 @@ internal class PyrightLSDescriptor(project: Project, private val executable: Pat
     override val lspGoToDefinitionSupport = configurations.goToDefinitionSupport
     override val lspHoverSupport = configurations.hoverSupport
     override val lspCompletionSupport = CompletionSupport(project).takeIf { configurations.completionSupport }
-    override val lspDiagnosticsSupport = DiagnosticsSupport(project)
+    override val lspDiagnosticsSupport = DiagnosticsSupport(project).takeIf { configurations.diagnosticsSupport }
     
     init {
         LOGGER.info(configurations.toString())
