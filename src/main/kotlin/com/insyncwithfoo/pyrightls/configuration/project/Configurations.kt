@@ -13,6 +13,5 @@ internal enum class WorkspaceFolders(val label: String) {
 internal class Configurations : BaseState() {
     var projectExecutable by string(null)
     var autoSuggestExecutable by property(true)
-    
     var workspaceFolders by enum(WorkspaceFolders.PROJECT_BASE)
 }

@@ -22,6 +22,10 @@ internal val Project.sdkPath: Path?
     get() = sdk?.homePath?.let { Path.of(it) }
 
 
+internal val Project.isNormal: Boolean
+    get() = !this.isDefault && !this.isDisposed
+
+
 internal val Project.pyrightLSConfigurations: AllConfigurations
     get() = ConfigurationService.getInstance(this).state
 

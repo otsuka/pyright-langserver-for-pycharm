@@ -20,6 +20,9 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * Diagnostics support can now be disabled separately.
   Previously the only way to do so would be to disable
   the entire language server by disabling the corresponding inspection.
+* The server can now be restarted automatically on configuration change
+  if the corresponding setting is enabled.
+  Previously it needed to be restarted manually.
 * UI components are slightly changed.
 
 

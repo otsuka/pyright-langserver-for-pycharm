@@ -22,6 +22,7 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
         autoImportCompletions = this.autoImportCompletions,
         autocompleteParentheses = this.autocompleteParentheses,
         diagnosticsSupport = this.diagnosticsSupport,
+        autoRestartServer = this.autoRestartServer,
         
         projectExecutable = other.projectExecutable,
         autoSuggestExecutable = other.autoSuggestExecutable,
@@ -43,6 +44,7 @@ internal data class AllConfigurations(
     val autoImportCompletions: Boolean,
     val autocompleteParentheses: Boolean,
     val diagnosticsSupport: Boolean,
+    val autoRestartServer: Boolean,
     
     val projectExecutable: @SystemDependent String?,
     val autoSuggestExecutable: Boolean,

@@ -13,5 +13,10 @@ internal class Configurable(internal val project: Project) : PyrightLSConfigurab
     override val panel by lazy { configurationPanel(state) }
 
     override fun getDisplayName() = message("configurations.project.displayName")
+    
+    override fun apply() {
+        super.apply()
+        project.restartPyrightServersIfSoChoose()
+    }
 
 }

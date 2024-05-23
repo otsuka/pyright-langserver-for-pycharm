@@ -1,10 +1,20 @@
 package com.insyncwithfoo.pyrightls.configuration
 
+import com.insyncwithfoo.pyrightls.isNormal
+import com.insyncwithfoo.pyrightls.pyrightLSConfigurations
+import com.insyncwithfoo.pyrightls.server.PyrightLSSupportProvider
 import com.intellij.openapi.components.BaseState
 import com.intellij.openapi.components.SimplePersistentStateComponent
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.platform.lsp.api.LspServerManager
 import com.intellij.util.xmlb.XmlSerializerUtil
+
+
+@Suppress("UnstableApiUsage")
+private val Project.lspServerManager: LspServerManager
+    get() = LspServerManager.getInstance(this)
 
 
 internal abstract class PyrightLSConfigurable<State : BaseState> : Configurable {
@@ -29,6 +39,13 @@ internal abstract class PyrightLSConfigurable<State : BaseState> : Configurable 
     
     protected fun State.copy(): State {
         return XmlSerializerUtil.createCopy(this)
+    }
+    
+    @Suppress("UnstableApiUsage")
+    protected fun Project.restartPyrightServersIfSoChoose() {
+        if (this.isNormal && pyrightLSConfigurations.autoRestartServer) {
+            lspServerManager.stopAndRestartIfNeeded(PyrightLSSupportProvider::class.java)
+        }
     }
     
 }

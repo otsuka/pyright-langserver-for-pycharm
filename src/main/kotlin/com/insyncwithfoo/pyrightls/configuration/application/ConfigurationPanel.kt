@@ -81,6 +81,10 @@ private fun Row.makeDiagnosticsSupportInput(block: Cell<JBCheckBox>.() -> Unit) 
     checkBox(message("configurations.diagnosticsSupport.label")).apply(block)
 
 
+private fun Row.makeAutoRestartServerInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.autoRestartServer.label")).apply(block)
+
+
 @Suppress("DialogTitleCapitalization")
 internal fun configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
@@ -116,6 +120,12 @@ internal fun configurationPanel(state: Configurations) = panel {
     }
     
     group(message("configurations.group.languageServer")) {
+        row {
+            makeAutoRestartServerInput { bindSelected(state::autoRestartServer) }
+        }
+        
+        separator()
+        
         row {
             makeCompletionSupportInput { bindSelected(state::completionSupport) }
         }

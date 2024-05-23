@@ -18,7 +18,6 @@ internal class Configurations : BaseState() {
     var useEditorFont by property(false)
     var addTooltipPrefix by property(false)
     var linkErrorCodes by property(false)
-    
     var hoverSupport by property(true)
     var completionSupport by property(false)
     var goToDefinitionSupport by property(false)
@@ -27,4 +26,5 @@ internal class Configurations : BaseState() {
     var autoImportCompletions by property(true)
     var autocompleteParentheses by property(false)
     var diagnosticsSupport by property(true)
+    var autoRestartServer by property(false)
 }
