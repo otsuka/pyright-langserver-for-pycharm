@@ -17,7 +17,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * The plugin now supports 2024.2. (b76af8fe)
 * Global option "Autocomplete parentheses" is added. (164141b1)
 * Global option "Diagnostics support" is added. (20ee9ba9)
-* Global option "Auto-restart server" is added. (HEAD)
+* Global option "Auto-restart server" is added. (2834e697)
 
 ### Changed
 
@@ -29,12 +29,14 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   [`CompletionSupport.createLookupElement`][50-4]
   to use the source of an auto-import completion as its detail.
   (4cef2a5d, 1af07222)
+* [Kotlin JVM plugin][50-5] is updated to 2.0.0. (d795b5e3)
 
 
   [50-1]: https://github.com/Kotlin/kotlinx-kover
   [50-2]: https://plugins.gradle.org/plugin/org.jetbrains.qodana
   [50-3]: https://github.com/JetBrains/qodana-action
   [50-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/1af07222/src/main/kotlin/com/insyncwithfoo/pyrightls/server/CompletionSupport.kt
+  [50-5]: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
 
 
 ## [0.4.0] - 2024-05-15
