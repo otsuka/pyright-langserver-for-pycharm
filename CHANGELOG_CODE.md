@@ -30,6 +30,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   to use the source of an auto-import completion as its detail.
   (4cef2a5d, 1af07222)
 * [Kotlin JVM plugin][50-5] is updated to 2.0.0. (d795b5e3)
+* [`HintIcon.toString()`][50-6] now returns an empty string.
+  This is due to `ExpUiIcons` being deprecated. (HEAD)
 
 
   [50-1]: https://github.com/Kotlin/kotlinx-kover
@@ -37,6 +39,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   [50-3]: https://github.com/JetBrains/qodana-action
   [50-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/1af07222/src/main/kotlin/com/insyncwithfoo/pyrightls/server/CompletionSupport.kt
   [50-5]: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
+  [50-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PathResolvingHint.kt
 
 
 ## [0.4.0] - 2024-05-15
