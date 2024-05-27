@@ -12,6 +12,11 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [0.5.0] - 2024-05-27
+
 ### Added
 
 * The plugin now supports 2024.2. (b76af8fe)
@@ -31,7 +36,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   (4cef2a5d, 1af07222)
 * [Kotlin JVM plugin][50-5] is updated to 2.0.0. (d795b5e3)
 * [`HintIcon.toString()`][50-6] now returns an empty string.
-  This is due to `ExpUiIcons` being deprecated. (HEAD)
+  This is due to `ExpUiIcons` being deprecated. (43c698d3)
 
 
   [50-1]: https://github.com/Kotlin/kotlinx-kover
@@ -39,7 +44,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
   [50-3]: https://github.com/JetBrains/qodana-action
   [50-4]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/1af07222/src/main/kotlin/com/insyncwithfoo/pyrightls/server/CompletionSupport.kt
   [50-5]: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
-  [50-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PathResolvingHint.kt
+  [50-6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/43c698d3/src/main/kotlin/com/insyncwithfoo/pyrightls/configuration/PathResolvingHint.kt
 
 
 ## [0.4.0] - 2024-05-15
@@ -267,7 +272,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.4.0..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.5.0..HEAD
+  [0.5.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.4.0..v0.5.0
   [0.4.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.3.0..v0.4.0
   [0.3.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.2.0..v0.3.0
   [0.2.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.1.0..v0.2.0
