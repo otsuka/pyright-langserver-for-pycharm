@@ -11,7 +11,11 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Added
+
+* The list of recognized file extensions can now be configured
+  and includes `py` and `pyi` by default.
+  Previously, only `.py` files are recognized.
 
 
 ## [0.5.0] - 2024-05-27

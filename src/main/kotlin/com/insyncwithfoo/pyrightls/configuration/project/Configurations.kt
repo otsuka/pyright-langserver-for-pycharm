@@ -42,5 +42,5 @@ internal class Configurations : BaseState() {
     var projectExecutable by string(null)
     var autoSuggestExecutable by property(true)
     var workspaceFolders by enum(WorkspaceFolders.PROJECT_BASE)
-    var targetedFileExtensions by string(listOf("py").join())
+    var targetedFileExtensions by string(listOf("py", "pyi").join())
 }

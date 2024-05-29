@@ -54,7 +54,7 @@ class ConfigurationFieldsTest : TestCase() {
             assertEquals(true, autoSuggestExecutable)
             
             assertEquals(WorkspaceFolders.PROJECT_BASE, workspaceFolders)
-            assertEquals("py", targetedFileExtensions)
+            assertEquals("py|pyi", targetedFileExtensions)
         }
     }
     

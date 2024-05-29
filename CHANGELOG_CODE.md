@@ -12,7 +12,9 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Added
+
+* Global option "Targeted file extensions" is added. (d5c69dbb, HEAD)
 
 
 ## [0.5.0] - 2024-05-27
