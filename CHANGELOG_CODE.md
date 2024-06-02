@@ -14,7 +14,14 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Added
 
-* Global option "Targeted file extensions" is added. (d5c69dbb, HEAD)
+* Global option "Targeted file extensions" is added. (d5c69dbb, 541c5630)
+
+### Fixed
+
+* [`SuppressQuickFix`][60-1] names are now stored as messages. (HEAD)
+
+
+  [60-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/diagnostics/SuppressQuickFix.kt
 
 
 ## [0.5.0] - 2024-05-27
