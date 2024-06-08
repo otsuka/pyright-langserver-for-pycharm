@@ -16,12 +16,19 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 * Global option "Targeted file extensions" is added. (d5c69dbb, 541c5630)
 
+### Changed
+
+* [`PyrightBundle`][60-1] and [`PyrightIcon`][60-2] are renamed. (HEAD)
+* Gradle is updated to 8.8. (HEAD)
+
 ### Fixed
 
-* [`SuppressQuickFix`][60-1] names are now stored as messages. (HEAD)
+* [`SuppressQuickFix`][60-3] names are now stored as messages. (0775b1ee)
 
 
-  [60-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/server/diagnostics/SuppressQuickFix.kt
+  [60-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/Bundle.kt
+  [60-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/Icon.kt
+  [60-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/0775b1ee/src/main/kotlin/com/insyncwithfoo/pyrightls/server/diagnostics/SuppressQuickFix.kt
 
 
 ## [0.5.0] - 2024-05-27
