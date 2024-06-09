@@ -13,6 +13,16 @@ import org.eclipse.lsp4j.InsertTextFormat
 
 private const val CARET_POSITION = "\$0"
 
+private const val doubleQuote = "\""
+private const val singleQuote = "'"
+private const val tripleDoubleQuote = "\"\"\""
+private const val tripleSingleQuote = "'''"
+
+
+private val quoteSequences by lazy {
+    listOf(tripleDoubleQuote, doubleQuote, tripleSingleQuote, singleQuote)
+}
+
 
 private val CompletionItem.isCallable: Boolean
     get() = kind in listOf(
@@ -29,6 +39,18 @@ private val CompletionItem.isAutoImportCompletion: Boolean
     }
 
 
+private val CompletionItem.isQuoted: Boolean
+    get() = quoteSequence != null
+
+
+private val CompletionItem.quoteSequence: String?
+    get() = quoteSequences.find { label.startsWith(it) && label.endsWith(it) }
+
+
+private val CompletionParameters.followingCharacters: CharSequence
+    get() = editor.document.charsSequence.slice(offset..offset + 2)
+
+
 private fun CompletionItem.completeWithParentheses() {
     insertText = "$label($CARET_POSITION)"
     insertTextFormat = InsertTextFormat.Snippet
@@ -38,6 +60,11 @@ private fun CompletionItem.completeWithParentheses() {
 private fun CompletionItem.useSourceAsDetailIfPossible() {
     // https://github.com/microsoft/pyright/blob/0b7860b/packages/pyright-internal/src/languageService/completionProvider.ts#L932-L934
     detail = labelDetails?.description ?: ""
+}
+
+
+private fun CompletionItem.removeTrailingQuoteSequence() {
+    insertText = label.dropLast(quoteSequence!!.length)
 }
 
 
@@ -53,6 +80,10 @@ internal class CompletionSupport(project: Project) : LspCompletionSupport() {
         
         if (item.isAutoImportCompletion) {
             item.useSourceAsDetailIfPossible()
+        }
+        
+        if (item.isQuoted && parameters.followingCharacters.startsWith(item.quoteSequence!!)) {
+            item.removeTrailingQuoteSequence()
         }
         
         return super.createLookupElement(parameters, item)
