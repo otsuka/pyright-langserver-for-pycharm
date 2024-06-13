@@ -17,6 +17,13 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
   and includes `py` and `pyi` by default.
   Previously, only `.py` files are recognized.
 
+### Changed
+
+* PyCharm has a bug leading to extra quotes being added
+  when autocompleting `Literal` strings and `TypedDict` keys.
+  A monkeypatch has been added to mitigate the issues.
+  This patch might be reverted in the future, when the bug is fixed.
+
 
 ## [0.5.0] - 2024-05-27
 

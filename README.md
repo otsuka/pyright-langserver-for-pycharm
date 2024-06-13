@@ -1,9 +1,9 @@
 # Pyright Language Server for PyCharm Professional
 
-[![Build](https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml/badge.svg)](https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml)
-[![Version](https://img.shields.io/jetbrains/plugin/v/24146)][5]
-[![Rating](https://img.shields.io/jetbrains/plugin/r/rating/24146)][5]
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/24146)][5]
+[![Build](https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml/badge.svg)][5]
+[![Version](https://img.shields.io/jetbrains/plugin/v/24146)][6]
+[![Rating](https://img.shields.io/jetbrains/plugin/r/rating/24146)][7]
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/24146)][8]
 
 ![](./.github/readme/demo-1.png)
 
@@ -12,7 +12,7 @@ Pyright language server integration for PyCharm Professional.
 
 This plugin acts as a bridge between [the Pyright language server][1]
 and [the experimental LSP API][2] added in PyCharm Professional 2023.2
-to give you annotations about your code as you edit your Python files.
+to give you diagnostics about your code as you edit your Python files.
 
 Note: If you use PyCharm Community,
 install [the <i>Pyright</i> plugin][3] instead.
@@ -54,9 +54,10 @@ Add the following line to the <b>Help</b> | <b>Diagnostic Tools</b> |
 
 ## Installation
 
-This plugin [is available][5] on the Marketplace.
-You can also download the ZIP files manually from [the <i>Releases</i> tab][6]
-or [the <i>Actions</i> tab][7] and follow the instructions described [here][8].
+This plugin [is available][8] on the Marketplace.
+You can also download the ZIP files manually
+from [the <i>Releases</i> tab][9] or [the <i>Actions</i> tab][10]
+and follow the instructions described [here][11].
 
 Currently supported versions:
 2024.1 (build 241.14494.241) - 2024.2.* (build 242.*).
@@ -64,22 +65,25 @@ Currently supported versions:
 
 ## Credits
 
-Most of the code is derived from [@koxudaxi/ruff-pycharm-plugin][9].
+Most of the code is derived from [@koxudaxi/ruff-pycharm-plugin][12].
 It is such a fortune that that plugin does almost the same thing
 and is also written in Kotlin, and hence easily understandable.
 
-The SVG and PNG logos are derived from [the README image][10]
+The SVG and PNG logos are derived from [the README image][13]
 of the [@microsoft/pyright][1] repository,
 generated using Inkscape's autotrace feature.
 
 Some other files are based on or copied directly from
-[@JetBrains/intellij-platform-plugin-template][11].
+[@JetBrains/intellij-platform-plugin-template][14].
 
 
-  [5]: https://plugins.jetbrains.com/plugin/24146
-  [6]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/releases
-  [7]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml
-  [8]: https://www.jetbrains.com/help/pycharm/managing-plugins.html#install_plugin_from_disk
-  [9]: https://github.com/koxudaxi/ruff-pycharm-plugin
-  [10]: https://github.com/microsoft/pyright/blob/main/docs/img/PyrightLarge.png
-  [11]: https://github.com/JetBrains/intellij-platform-plugin-template
+  [5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml
+  [6]: https://plugins.jetbrains.com/plugin/24146/versions
+  [7]: https://plugins.jetbrains.com/plugin/24146/reviews
+  [8]: https://plugins.jetbrains.com/plugin/24146
+  [9]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/releases
+  [10]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml
+  [11]: https://www.jetbrains.com/help/pycharm/managing-plugins.html#install_plugin_from_disk
+  [12]: https://github.com/koxudaxi/ruff-pycharm-plugin
+  [13]: https://github.com/microsoft/pyright/blob/main/docs/img/PyrightLarge.png
+  [14]: https://github.com/JetBrains/intellij-platform-plugin-template
