@@ -21,7 +21,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [`PyrightBundle`][60-1] and [`PyrightIcon`][60-2] are renamed. (81e35bb9)
 * Gradle is updated to 8.8. (81e35bb9)
 * [The Kover Gradle Plugin][60-3] is updated to 0.8.1. (8e758a00)
-* [The IntelliJ Platform Gradle Plugin][60-4] is updated to 2.0.0-beta6. (HEAD)
+* [The IntelliJ Platform Gradle Plugin][60-4] is updated to 2.0.0-beta7. (b880c90f, HEAD)
 
 ### Fixed
 
