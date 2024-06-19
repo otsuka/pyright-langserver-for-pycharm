@@ -38,9 +38,17 @@ internal enum class WorkspaceFolders(val label: String) {
 }
 
 
+internal enum class DiagnosticMode(val value: String?, val label: String) {
+    DEFAULT(null, message("configurations.diagnosticMode.default")),
+    OPEN_FILES_ONLY("openFilesOnly", message("configurations.diagnosticMode.openFilesOnly")),
+    WORKSPACE("workspace", message("configurations.diagnosticMode.workspace"));
+}
+
+
 internal class Configurations : BaseState() {
     var projectExecutable by string(null)
     var autoSuggestExecutable by property(true)
     var workspaceFolders by enum(WorkspaceFolders.PROJECT_BASE)
     var targetedFileExtensions by string(listOf("py", "pyi").join())
+    var diagnosticMode by enum(DiagnosticMode.DEFAULT)
 }

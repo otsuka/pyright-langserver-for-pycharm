@@ -1,6 +1,7 @@
 package com.insyncwithfoo.pyrightls.configuration
 
 import com.insyncwithfoo.pyrightls.configuration.application.LogLevel
+import com.insyncwithfoo.pyrightls.configuration.project.DiagnosticMode
 import com.insyncwithfoo.pyrightls.configuration.project.WorkspaceFolders
 import junit.framework.TestCase
 import com.insyncwithfoo.pyrightls.configuration.application.Configurations as ApplicationConfigurations
@@ -47,7 +48,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - project`() {
         val configurations = ProjectConfigurations()
         
-        assertEquals(4, projectFields().size)
+        assertEquals(5, projectFields().size)
         
         configurations.run {
             assertEquals(null, projectExecutable)
@@ -55,6 +56,7 @@ class ConfigurationFieldsTest : TestCase() {
             
             assertEquals(WorkspaceFolders.PROJECT_BASE, workspaceFolders)
             assertEquals("py|pyi", targetedFileExtensions)
+            assertEquals(DiagnosticMode.DEFAULT, diagnosticMode)
         }
     }
     

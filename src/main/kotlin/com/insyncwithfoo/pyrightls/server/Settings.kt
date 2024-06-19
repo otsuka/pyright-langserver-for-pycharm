@@ -1,44 +1,25 @@
 package com.insyncwithfoo.pyrightls.server
 
 
-internal class Python {
-    
-    private val analysis = Analysis()
-    
-    var pythonPath: String? = null
-    
-    fun analysis(block: Analysis.() -> Unit) {
-        analysis.apply(block)
-    }
-    
-    internal class Analysis {
-        var logLevel: String? = null
-        var autoImportCompletions: Boolean? = null
-    }
-    
-}
+internal data class Analysis(
+    var logLevel: String? = null,
+    var autoImportCompletions: Boolean? = null,
+    var diagnosticMode: String? = null
+)
 
 
-internal class Pyright {
+internal data class Python(
+    var pythonPath: String? = null,
+    val analysis: Analysis = Analysis()
+)
+
+
+internal data class Pyright(
     var disableTaggedHints: Boolean? = null
-}
+)
 
 
-internal class Settings(block: Settings.() -> Unit) {
-    
-    private val python = Python()
-    private val pyright = Pyright()
-    
-    init {
-        this.apply(block)
-    }
-    
-    fun python(block: Python.() -> Unit) {
-        python.apply(block)
-    }
-    
-    fun pyright(block: Pyright.() -> Unit) {
-        pyright.apply(block)
-    }
-    
-}
+internal data class Settings(
+    val python: Python = Python(),
+    val pyright: Pyright = Pyright()
+)

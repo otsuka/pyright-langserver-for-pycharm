@@ -2,6 +2,7 @@ package com.insyncwithfoo.pyrightls.configuration
 
 import com.insyncwithfoo.pyrightls.configuration.application.LogLevel
 import com.insyncwithfoo.pyrightls.configuration.project.DelimitedFileExtensionList
+import com.insyncwithfoo.pyrightls.configuration.project.DiagnosticMode
 import com.insyncwithfoo.pyrightls.configuration.project.FileExtension
 import com.insyncwithfoo.pyrightls.configuration.project.WorkspaceFolders
 import com.insyncwithfoo.pyrightls.configuration.project.split
@@ -30,7 +31,8 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
         projectExecutable = other.projectExecutable,
         autoSuggestExecutable = other.autoSuggestExecutable,
         workspaceFolders = other.workspaceFolders,
-        targetedFileExtensions = other.targetedFileExtensions
+        targetedFileExtensions = other.targetedFileExtensions,
+        diagnosticMode = other.diagnosticMode
     )
 
 
@@ -53,7 +55,8 @@ internal data class AllConfigurations(
     val projectExecutable: @SystemDependent String?,
     val autoSuggestExecutable: Boolean,
     val workspaceFolders: WorkspaceFolders,
-    val targetedFileExtensions: DelimitedFileExtensionList?
+    val targetedFileExtensions: DelimitedFileExtensionList?,
+    val diagnosticMode: DiagnosticMode
 ) {
     
     val executable: @SystemDependent String?

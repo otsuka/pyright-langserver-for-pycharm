@@ -54,6 +54,15 @@ private fun Row.makeTargetedFileExtensionsInput(block: Cell<ExpandableTextField>
 }
 
 
+private fun Row.makeDiagnosticModeInput(block: Cell<ComboBox<DiagnosticMode>>.() -> Unit) = run {
+    val renderer = SimpleListCellRenderer.create<DiagnosticMode> { label, value, _ ->
+        label.text = value.label
+    }
+    
+    comboBox(DiagnosticMode.entries, renderer).apply(block)
+}
+
+
 internal fun Configurable.configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
     
@@ -84,6 +93,9 @@ internal fun Configurable.configurationPanel(state: Configurations) = panel {
                     { state.targetedFileExtensions = it.deduplicate() }
                 )
             }
+        }
+        row(message("configurations.diagnosticMode.label")) {
+            makeDiagnosticModeInput { bindItem(state::diagnosticMode.toNullableProperty()) }
         }
         row(message("configurations.workspaceFolders.label")) {
             makeWorkspaceFoldersInput { bindItem(state::workspaceFolders.toNullableProperty()) }

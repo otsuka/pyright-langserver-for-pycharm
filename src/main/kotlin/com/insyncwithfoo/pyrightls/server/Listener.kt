@@ -9,19 +9,20 @@ import org.eclipse.lsp4j.DidChangeConfigurationParams
 import org.eclipse.lsp4j.InitializeResult
 
 
-private fun Project.createPyrightLSSettingsObject() = Settings {
+private fun Project.createPyrightLSSettingsObject() = Settings().apply {
     val configurations = pyrightLSConfigurations
     
-    python {
+    python.apply {
         pythonPath = sdkPath?.toString()
         
-        analysis {
+        analysis.apply {
             logLevel = configurations.logLevel.label
             autoImportCompletions = configurations.autoImportCompletions
+            diagnosticMode = configurations.diagnosticMode.value
         }
     }
     
-    pyright {
+    pyright.apply {
         disableTaggedHints = !configurations.taggedHints
     }
 }

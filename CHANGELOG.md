@@ -16,6 +16,8 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * The list of recognized file extensions can now be configured
   and includes `py` and `pyi` by default.
   Previously, only `.py` files are recognized.
+* The diagnostic mode is now configurable.
+  Previously, no corresponding value is sent to the language server.
 
 ### Changed
 

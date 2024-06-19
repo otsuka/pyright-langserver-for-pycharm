@@ -55,9 +55,9 @@ Add the following line to the <b>Help</b> | <b>Diagnostic Tools</b> |
 ## Installation
 
 This plugin [is available][8] on the Marketplace.
-You can also download the ZIP files manually
-from [the <i>Releases</i> tab][9] or [the <i>Actions</i> tab][10]
-and follow the instructions described [here][11].
+You can also download the ZIP files manually from [the <i>Releases</i> tab][9],
+[the `build` branch][10] or [the <i>Actions</i> tab][11]
+and follow the instructions described [here][12].
 
 Currently supported versions:
 2024.1 (build 241.14494.241) - 2024.2.* (build 242.*).
@@ -65,16 +65,16 @@ Currently supported versions:
 
 ## Credits
 
-Most of the code is derived from [@koxudaxi/ruff-pycharm-plugin][12].
+Most of the code is derived from [@koxudaxi/ruff-pycharm-plugin][13].
 It is such a fortune that that plugin does almost the same thing
 and is also written in Kotlin, and hence easily understandable.
 
-The SVG and PNG logos are derived from [the README image][13]
+The SVG and PNG logos are derived from [the README image][14]
 of the [@microsoft/pyright][1] repository,
 generated using Inkscape's autotrace feature.
 
 Some other files are based on or copied directly from
-[@JetBrains/intellij-platform-plugin-template][14].
+[@JetBrains/intellij-platform-plugin-template][15].
 
 
   [5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml
@@ -82,8 +82,9 @@ Some other files are based on or copied directly from
   [7]: https://plugins.jetbrains.com/plugin/24146/reviews
   [8]: https://plugins.jetbrains.com/plugin/24146
   [9]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/releases
-  [10]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml
-  [11]: https://www.jetbrains.com/help/pycharm/managing-plugins.html#install_plugin_from_disk
-  [12]: https://github.com/koxudaxi/ruff-pycharm-plugin
-  [13]: https://github.com/microsoft/pyright/blob/main/docs/img/PyrightLarge.png
-  [14]: https://github.com/JetBrains/intellij-platform-plugin-template
+  [10]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/tree/build
+  [11]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/actions/workflows/build.yaml
+  [12]: https://www.jetbrains.com/help/pycharm/managing-plugins.html#install_plugin_from_disk
+  [13]: https://github.com/koxudaxi/ruff-pycharm-plugin
+  [14]: https://github.com/microsoft/pyright/blob/main/docs/img/PyrightLarge.png
+  [15]: https://github.com/JetBrains/intellij-platform-plugin-template
