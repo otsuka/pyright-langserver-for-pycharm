@@ -48,7 +48,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - project`() {
         val configurations = ProjectConfigurations()
         
-        assertEquals(5, projectFields().size)
+        assertEquals(6, projectFields().size)
         
         configurations.run {
             assertEquals(null, projectExecutable)
@@ -56,7 +56,8 @@ class ConfigurationFieldsTest : TestCase() {
             
             assertEquals(WorkspaceFolders.PROJECT_BASE, workspaceFolders)
             assertEquals("py|pyi", targetedFileExtensions)
-            assertEquals(DiagnosticMode.DEFAULT, diagnosticMode)
+            assertEquals(DiagnosticMode.OPEN_FILES_ONLY, diagnosticMode)
+            assertEquals(true, autoSearchPaths)
         }
     }
     

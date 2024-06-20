@@ -18,6 +18,9 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
   Previously, only `.py` files are recognized.
 * The diagnostic mode is now configurable.
   Previously, no corresponding value is sent to the language server.
+* The server can now be asked not to
+  automatically add common search paths (e.g. `src`).
+  Previously, they were always added by default.
 
 ### Changed
 

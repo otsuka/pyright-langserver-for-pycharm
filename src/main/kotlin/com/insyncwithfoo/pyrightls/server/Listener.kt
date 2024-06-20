@@ -19,6 +19,7 @@ private fun Project.createPyrightLSSettingsObject() = Settings().apply {
             logLevel = configurations.logLevel.label
             autoImportCompletions = configurations.autoImportCompletions
             diagnosticMode = configurations.diagnosticMode.value
+            autoSearchPaths = configurations.autoSearchPaths
         }
     }
     

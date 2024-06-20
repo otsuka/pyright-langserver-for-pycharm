@@ -32,7 +32,8 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
         autoSuggestExecutable = other.autoSuggestExecutable,
         workspaceFolders = other.workspaceFolders,
         targetedFileExtensions = other.targetedFileExtensions,
-        diagnosticMode = other.diagnosticMode
+        diagnosticMode = other.diagnosticMode,
+        autoSearchPaths = other.autoSearchPaths
     )
 
 
@@ -56,7 +57,8 @@ internal data class AllConfigurations(
     val autoSuggestExecutable: Boolean,
     val workspaceFolders: WorkspaceFolders,
     val targetedFileExtensions: DelimitedFileExtensionList?,
-    val diagnosticMode: DiagnosticMode
+    val diagnosticMode: DiagnosticMode,
+    val autoSearchPaths: Boolean
 ) {
     
     val executable: @SystemDependent String?

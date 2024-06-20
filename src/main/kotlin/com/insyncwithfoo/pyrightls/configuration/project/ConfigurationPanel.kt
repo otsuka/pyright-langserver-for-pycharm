@@ -63,6 +63,10 @@ private fun Row.makeDiagnosticModeInput(block: Cell<ComboBox<DiagnosticMode>>.()
 }
 
 
+private fun Row.makeAutoSearchPathsInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.autoSearchPaths.label")).apply(block)
+
+
 internal fun Configurable.configurationPanel(state: Configurations) = panel {
     // FIXME: The onInput() callbacks are too deeply nested.
     
@@ -86,6 +90,9 @@ internal fun Configurable.configurationPanel(state: Configurations) = panel {
     
     @Suppress("DialogTitleCapitalization")
     group(message("configurations.group.languageServer")) {
+        row {
+            makeAutoSearchPathsInput { bindSelected(state::autoSearchPaths) }
+        }
         row(message("configurations.targetedFileExtensions.label")) {
             makeTargetedFileExtensionsInput {
                 bindText(
