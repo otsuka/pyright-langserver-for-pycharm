@@ -20,9 +20,8 @@ private const val tripleDoubleQuote = "\"\"\""
 private const val tripleSingleQuote = "'''"
 
 
-private val quoteSequences by lazy {
+private val quoteSequences =
     listOf(tripleDoubleQuote, doubleQuote, tripleSingleQuote, singleQuote)
-}
 
 
 private val CompletionItem.isCallable: Boolean

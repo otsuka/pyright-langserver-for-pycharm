@@ -42,9 +42,6 @@ internal fun executablePathResolvingHint(path: Path) = when {
         Hint.warning(message("configurations.hint.fileNotFound"))
     path.isDirectory() ->
         Hint.error(message("configurations.hint.unexpectedDirectory"))
-    // Uncomment the following if it is asked for.
-    // !path.isExecutable() ->
-    //     Hint.warning(message("configurations.hint.fileNotExecutable"))
     !path.isProbablyPyrightLSExecutable ->
         Hint.info(message("configurations.hint.unknownExecutable"))
     else ->

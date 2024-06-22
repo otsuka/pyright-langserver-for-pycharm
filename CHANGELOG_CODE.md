@@ -17,6 +17,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project option "Targeted file extensions" is added. (d5c69dbb, 541c5630)
 * Project option "Diagnostic mode" is added. (553c2ae2)
 * Project option "Auto search paths" is added. (90b572b7)
+* Global option "Monkeypatch auto-import details" is added. (9efacf56)
+* Global option "Monkeypatch trailing quote bug" is added. (9efacf56)
 
 ### Changed
 

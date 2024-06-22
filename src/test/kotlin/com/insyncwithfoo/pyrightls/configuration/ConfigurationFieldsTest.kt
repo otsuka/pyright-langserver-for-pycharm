@@ -25,7 +25,7 @@ class ConfigurationFieldsTest : TestCase() {
     fun `test defaults - application`() {
         val configurations = ApplicationConfigurations()
         
-        assertEquals(14, applicationFields().size)
+        assertEquals(16, applicationFields().size)
         
         configurations.run {
             assertEquals(false, alwaysUseGlobal)
@@ -42,6 +42,8 @@ class ConfigurationFieldsTest : TestCase() {
             assertEquals(false, autocompleteParentheses)
             assertEquals(true, diagnosticsSupport)
             assertEquals(false, autoRestartServer)
+            assertEquals(true, monkeypatchAutoImportDetails)
+            assertEquals(true, monkeypatchTrailingQuoteBug)
         }
     }
     
