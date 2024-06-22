@@ -68,8 +68,6 @@ private fun Row.makeAutoSearchPathsInput(block: Cell<JBCheckBox>.() -> Unit) =
 
 
 internal fun Configurable.configurationPanel(state: Configurations) = panel {
-    // FIXME: The onInput() callbacks are too deeply nested.
-    
     row {
         makeAutoSuggestExecutableInput { bindSelected(state::autoSuggestExecutable) }
     }

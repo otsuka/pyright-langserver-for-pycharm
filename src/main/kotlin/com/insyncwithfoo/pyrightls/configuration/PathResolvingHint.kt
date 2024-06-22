@@ -10,7 +10,6 @@ import kotlin.io.path.isDirectory
 internal enum class HintIcon {
     Success, Info, Warning, Error;
     
-    // TODO: Re-add icons
     override fun toString() = ""
 }
 

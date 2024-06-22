@@ -24,10 +24,10 @@ private val Project.osDependentInterpreterPath: String?
 private fun Project.createPyrightLSSettingsObject() = Settings().apply {
     val configurations = pyrightLSConfigurations
     
-    python.apply {
+    python {
         pythonPath = osDependentInterpreterPath
         
-        analysis.apply {
+        analysis {
             logLevel = configurations.logLevel.label
             autoImportCompletions = configurations.autoImportCompletions
             diagnosticMode = configurations.diagnosticMode.value
@@ -35,7 +35,7 @@ private fun Project.createPyrightLSSettingsObject() = Settings().apply {
         }
     }
     
-    pyright.apply {
+    pyright {
         disableTaggedHints = !configurations.taggedHints
     }
 }

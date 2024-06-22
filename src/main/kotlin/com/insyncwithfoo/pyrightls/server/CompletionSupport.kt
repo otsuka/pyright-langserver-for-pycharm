@@ -9,6 +9,7 @@ import com.intellij.platform.lsp.api.customization.LspCompletionSupport
 import org.eclipse.lsp4j.CompletionItem
 import org.eclipse.lsp4j.CompletionItemKind
 import org.eclipse.lsp4j.InsertTextFormat
+import org.eclipse.lsp4j.TextEdit
 
 
 private const val CARET_POSITION = "\$0"
@@ -51,6 +52,11 @@ private val CompletionParameters.followingCharacters: CharSequence
     get() = editor.document.charsSequence.slice(offset..offset + 2)
 
 
+private fun CompletionParameters.itemMightTriggerTrailingQuoteBug(item: CompletionItem): Boolean {
+    return item.isQuoted && followingCharacters.startsWith(item.quoteSequence!!)
+}
+
+
 private fun CompletionItem.completeWithParentheses() {
     insertText = "$label($CARET_POSITION)"
     insertTextFormat = InsertTextFormat.Snippet
@@ -64,7 +70,13 @@ private fun CompletionItem.useSourceAsDetailIfPossible() {
 
 
 private fun CompletionItem.removeTrailingQuoteSequence() {
-    insertText = label.dropLast(quoteSequence!!.length)
+    val trailingQuoteSequence = quoteSequence!!
+    
+    insertText = label.removeSuffix(trailingQuoteSequence)
+    
+    (textEdit.get() as? TextEdit)?.apply {
+        newText = newText.removeSuffix(trailingQuoteSequence)
+    }
 }
 
 
@@ -78,11 +90,11 @@ internal class CompletionSupport(project: Project) : LspCompletionSupport() {
             item.completeWithParentheses()
         }
         
-        if (item.isAutoImportCompletion) {
+        if (item.isAutoImportCompletion && configurations.monkeypatchAutoImportDetails) {
             item.useSourceAsDetailIfPossible()
         }
         
-        if (item.isQuoted && parameters.followingCharacters.startsWith(item.quoteSequence!!)) {
+        if (parameters.itemMightTriggerTrailingQuoteBug(item) && configurations.monkeypatchTrailingQuoteBug) {
             item.removeTrailingQuoteSequence()
         }
         

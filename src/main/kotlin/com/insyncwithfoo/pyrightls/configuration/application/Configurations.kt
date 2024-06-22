@@ -27,4 +27,6 @@ internal class Configurations : BaseState() {
     var autocompleteParentheses by property(false)
     var diagnosticsSupport by property(true)
     var autoRestartServer by property(false)
+    var monkeypatchAutoImportDetails by property(true)
+    var monkeypatchTrailingQuoteBug by property(true)
 }

@@ -16,6 +16,10 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 * The list of recognized file extensions can now be configured
   and includes `py` and `pyi` by default.
   Previously, only `.py` files are recognized.
+* PyCharm has a bug leading to extra quotes being added
+  when autocompleting `Literal` strings and `TypedDict` keys.
+  A monkeypatch has been added to mitigate the issues.
+  It can be disabled using an UI option.
 * The diagnostic mode is now configurable.
   Previously, no corresponding value is sent to the language server.
 * The server can now be asked not to
@@ -24,10 +28,8 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 
 ### Changed
 
-* PyCharm has a bug leading to extra quotes being added
-  when autocompleting `Literal` strings and `TypedDict` keys.
-  A monkeypatch has been added to mitigate the issues.
-  This patch might be reverted in the future, when the bug is fixed.
+* The "Auto-import" completion item detail monkeypatch
+  introduced in the previous version can now be disabled.
 
 
 ## [0.5.0] - 2024-05-27

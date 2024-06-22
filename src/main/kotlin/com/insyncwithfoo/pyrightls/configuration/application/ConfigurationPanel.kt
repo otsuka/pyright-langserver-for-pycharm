@@ -10,6 +10,7 @@ import com.insyncwithfoo.pyrightls.configuration.secondColumnPathInput
 import com.insyncwithfoo.pyrightls.message
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
+import com.intellij.openapi.util.text.HtmlChunk
 import com.intellij.ui.SimpleListCellRenderer
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.dsl.builder.Cell
@@ -85,10 +86,21 @@ private fun Row.makeAutoRestartServerInput(block: Cell<JBCheckBox>.() -> Unit) =
     checkBox(message("configurations.autoRestartServer.label")).apply(block)
 
 
+private fun Row.makeMonkeypatchAutoImportDetailsInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.monkeypatchAutoImportDetails.label")).apply(block)
+
+
+private fun Row.makeMonkeypatchTrailingQuoteBugInput(block: Cell<JBCheckBox>.() -> Unit) = run {
+    val issueLink = HtmlChunk.link("https://youtrack.jetbrains.com/issue/IJPL-155741", " IJPL-155741")
+    val label = message("configurations.monkeypatchTrailingQuoteBug.label")
+    val comment = message("configurations.monkeypatchTrailingQuoteBug.comment", issueLink)
+    
+    checkBox(label).comment(comment).apply(block)
+}
+
+
 @Suppress("DialogTitleCapitalization")
 internal fun configurationPanel(state: Configurations) = panel {
-    // FIXME: The onInput() callbacks are too deeply nested.
-    
     row {
         makeAlwaysUseGlobalInput { bindSelected(state::alwaysUseGlobal) }
     }
@@ -133,8 +145,16 @@ internal fun configurationPanel(state: Configurations) = panel {
             row {
                 makeAutoImportCompletionsInput { bindSelected(state::autoImportCompletions) }
             }
+            indent {
+                row {
+                    makeMonkeypatchAutoImportDetailsInput { bindSelected(state::monkeypatchAutoImportDetails) }
+                }
+            }
             row {
                 makeAutocompleteParenthesesInput { bindSelected(state::autocompleteParentheses) }
+            }
+            row {
+                makeMonkeypatchTrailingQuoteBugInput { bindSelected(state::monkeypatchTrailingQuoteBug) }
             }
         }
         
