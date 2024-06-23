@@ -10,6 +10,7 @@ import org.eclipse.lsp4j.CompletionItem
 import org.eclipse.lsp4j.CompletionItemKind
 import org.eclipse.lsp4j.InsertTextFormat
 import org.eclipse.lsp4j.TextEdit
+import kotlin.math.min
 
 
 private const val CARET_POSITION = "\$0"
@@ -48,7 +49,12 @@ private val CompletionItem.quoteSequence: String?
 
 
 private val CompletionParameters.followingCharacters: CharSequence
-    get() = editor.document.charsSequence.slice(offset..offset + 2)
+    get() {
+        val documentCharsSequence = editor.document.charsSequence
+        val upperBound = min(offset + 2, documentCharsSequence.length - 1)
+        
+        return documentCharsSequence.slice(offset..upperBound)
+    }
 
 
 private fun CompletionParameters.itemMightTriggerTrailingQuoteBug(item: CompletionItem): Boolean {
