@@ -3,14 +3,22 @@ package com.insyncwithfoo.pyrightls
 import com.insyncwithfoo.pyrightls.configuration.AllConfigurations
 import com.insyncwithfoo.pyrightls.configuration.ConfigurationService
 import com.intellij.execution.wsl.WSLDistribution
-import com.intellij.execution.wsl.target.WslTargetEnvironmentConfiguration
+import com.intellij.openapi.module.Module
+import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.projectRoots.Sdk
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.profile.codeInspection.InspectionProjectProfileManager
-import com.jetbrains.python.target.PyTargetAwareAdditionalData
 import java.nio.file.Path
 import kotlin.io.path.listDirectoryEntries
+
+
+private val <T> Array<T>.onlyElement: T?
+    get() = firstOrNull().takeIf { size == 1 }
+
+
+private val Project.modules: Array<Module>
+    get() = ModuleManager.getInstance(this).modules
 
 
 private val Project.sdk: Sdk?
@@ -18,25 +26,27 @@ private val Project.sdk: Sdk?
 
 
 internal val Project.wslDistribution: WSLDistribution?
-    get() {
-        val sdk = this.sdk ?: return null
-        val additionalData = sdk.sdkAdditionalData as? PyTargetAwareAdditionalData ?: return null
-        val configuration = additionalData.targetEnvironmentConfiguration as? WslTargetEnvironmentConfiguration
-        
-        return configuration?.distribution
-    }
+    get() = sdk?.wslDistribution
 
 
 internal val Project.path: Path?
     get() = basePath?.let { Path.of(it) }
 
 
-internal val Project.sdkPath: Path?
+internal val Project.interpreterPath: Path?
     get() = sdk?.homePath?.let { Path.of(it) }
 
 
 internal val Project.isNormal: Boolean
     get() = !this.isDefault && !this.isDisposed
+
+
+internal val Project.onlyModuleOrNull: Module?
+    get() = modules.onlyElement
+
+
+internal val Project.hasOnlyOneModule: Boolean
+    get() = modules.size == 1
 
 
 internal val Project.pyrightLSConfigurations: AllConfigurations
@@ -57,8 +67,8 @@ internal fun Project.isPyrightLSInspectionEnabled(): Boolean {
 
 
 internal fun Project.findPyrightLSExecutable(): Path? {
-    val sdkDirectory = sdkPath?.parent ?: return null
-    val children = sdkDirectory.listDirectoryEntries()
+    val interpreterDirectory = interpreterPath?.parent ?: return null
+    val children = interpreterDirectory.listDirectoryEntries()
     
     return children.find { it.isProbablyPyrightLSExecutable }
 }

@@ -1,6 +1,7 @@
 package com.insyncwithfoo.pyrightls.server
 
 import com.insyncwithfoo.pyrightls.configuration.project.WorkspaceFolders
+import com.insyncwithfoo.pyrightls.hasOnlyOneModule
 import com.insyncwithfoo.pyrightls.message
 import com.insyncwithfoo.pyrightls.path
 import com.insyncwithfoo.pyrightls.pyrightLSConfigurations
@@ -11,6 +12,7 @@ import com.intellij.execution.wsl.WSLCommandLineOptions
 import com.intellij.execution.wsl.WSLDistribution
 import com.intellij.execution.wsl.WslPath
 import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.BaseProjectDirectories.Companion.getBaseDirectories
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.modules
@@ -54,17 +56,19 @@ private fun Project.getWorkspaceFolders(): Collection<VirtualFile> =
 
 
 @Suppress("UnstableApiUsage")
-internal class PyrightLSDescriptor(project: Project, private val executable: Path) :
-    LspServerDescriptor(project, PRESENTABLE_NAME, *project.getWorkspaceFolders().toTypedArray()) {
+internal class PyrightLSDescriptor(project: Project, module: Module?, private val executable: Path) :
+    LspServerDescriptor(project, getPresentableName(project, module), *project.getWorkspaceFolders().toTypedArray()) {
     
     private val configurations = project.pyrightLSConfigurations
     
-    override val lspServerListener = Listener(project)
+    override val lspServerListener = Listener(project, module)
     
     override val lspGoToDefinitionSupport = configurations.goToDefinitionSupport
     override val lspHoverSupport = configurations.hoverSupport
     override val lspCompletionSupport = CompletionSupport(project).takeIf { configurations.completionSupport }
     override val lspDiagnosticsSupport = DiagnosticsSupport(project).takeIf { configurations.diagnosticsSupport }
+    
+    private val wslDistribution by lazy { module?.wslDistribution ?: project.wslDistribution }
     
     init {
         LOGGER.info(configurations.toString())
@@ -74,11 +78,9 @@ internal class PyrightLSDescriptor(project: Project, private val executable: Pat
         file.extension in configurations.targetedFileExtensionList
     
     override fun getFileUri(file: VirtualFile): String {
-        val wslDistribution = project.wslDistribution
-        
         return when {
             wslDistribution == null -> super.getFileUri(file)
-            else -> makeFileUri(wslDistribution.getWslPath(Path.of(file.path))!!)
+            else -> makeFileUri(wslDistribution!!.getWslPath(Path.of(file.path))!!)
         }
     }
     
@@ -86,18 +88,15 @@ internal class PyrightLSDescriptor(project: Project, private val executable: Pat
         findFileByUri(URI.create(fileUri))
     
     private fun findFileByUri(fileUri: URI): VirtualFile? {
-        val wslDistribution = project.wslDistribution
-        
         val virtualFileUri = when {
             wslDistribution == null || fileUri.pathIsAbsoluteDos -> fileUri
-            else -> Path.of(wslDistribution.getWindowsPath(fileUri.path)).toUri()
+            else -> Path.of(wslDistribution!!.getWindowsPath(fileUri.path)).toUri()
         }
         
         return super.findFileByUri(virtualFileUri.toString())
     }
     
     override fun createCommandLine() = GeneralCommandLine().apply {
-        val wslDistribution = project.wslDistribution
         val projectPath = project.path
         val exePath = wslDistribution.getPureLinuxOrWindowsPath(executable)
         
@@ -120,8 +119,14 @@ internal class PyrightLSDescriptor(project: Project, private val executable: Pat
     }
     
     companion object {
-        val PRESENTABLE_NAME = message("languageServer.representableName")
+        
         private val LOGGER = Logger.getInstance(PyrightLSDescriptor::class.java)
+        
+        private fun getPresentableName(project: Project, module: Module?) = when {
+            module == null || project.hasOnlyOneModule -> message("languageServer.representableName.project")
+            else -> message("languageServer.representableName.module", module.name)
+        }
+        
     }
     
 }
