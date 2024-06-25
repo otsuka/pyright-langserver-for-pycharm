@@ -12,7 +12,15 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Fixed
+
+* `Project.sdkPath` is now [`.interpreterPath`][101-1]
+  and serves only as a fallback of [`Module.interpreterPath`][101-2].
+  (6b9214fe)
+
+
+  [101-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b9214fe/src/main/kotlin/com/insyncwithfoo/pyrightls/Project.kt
+  [101-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b9214fe/src/main/kotlin/com/insyncwithfoo/pyrightls/Module.kt
 
 
 ## [1.0.0] - 2024-06-23
@@ -27,22 +35,22 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Changed
 
-* [`PyrightBundle`][60-1] and [`PyrightIcon`][60-2] are renamed. (81e35bb9)
+* [`PyrightBundle`][100-1] and [`PyrightIcon`][100-2] are renamed. (81e35bb9)
 * Gradle is updated to 8.8. (81e35bb9)
-* [The Kover Gradle Plugin][60-3] is updated to 0.8.1. (8e758a00)
-* [The IntelliJ Platform Gradle Plugin][60-4] is updated to 2.0.0-beta7.
+* [The Kover Gradle Plugin][100-3] is updated to 0.8.1. (8e758a00)
+* [The IntelliJ Platform Gradle Plugin][100-4] is updated to 2.0.0-beta7.
   (b880c90f, 2e6d0d96)
 
 ### Fixed
 
-* [`SuppressQuickFix`][60-5] names are now stored as messages. (0775b1ee)
+* [`SuppressQuickFix`][100-5] names are now stored as messages. (0775b1ee)
 
 
-  [60-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/81e35bb9/src/main/kotlin/com/insyncwithfoo/pyrightls/Bundle.kt
-  [60-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/81e35bb9/src/main/kotlin/com/insyncwithfoo/pyrightls/Icon.kt
-  [60-3]: https://github.com/Kotlin/kotlinx-kover
-  [60-4]: https://github.com/JetBrains/intellij-platform-gradle-plugin
-  [60-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/0775b1ee/src/main/kotlin/com/insyncwithfoo/pyrightls/server/diagnostics/SuppressQuickFix.kt
+  [100-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/81e35bb9/src/main/kotlin/com/insyncwithfoo/pyrightls/Bundle.kt
+  [100-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/81e35bb9/src/main/kotlin/com/insyncwithfoo/pyrightls/Icon.kt
+  [100-3]: https://github.com/Kotlin/kotlinx-kover
+  [100-4]: https://github.com/JetBrains/intellij-platform-gradle-plugin
+  [100-5]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/0775b1ee/src/main/kotlin/com/insyncwithfoo/pyrightls/server/diagnostics/SuppressQuickFix.kt
 
 
 ## [0.5.0] - 2024-05-27
