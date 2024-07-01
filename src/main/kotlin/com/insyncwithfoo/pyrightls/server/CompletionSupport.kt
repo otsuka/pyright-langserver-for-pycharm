@@ -63,8 +63,15 @@ private fun CompletionParameters.itemMightTriggerTrailingQuoteBug(item: Completi
 
 
 private fun CompletionItem.completeWithParentheses() {
-    insertText = "$label($CARET_POSITION)"
+    val newInsertText = "$label($CARET_POSITION)"
+    
     insertTextFormat = InsertTextFormat.Snippet
+    
+    when (val textEdit = textEdit?.get()) {
+        null -> insertText = newInsertText
+        is TextEdit -> textEdit.newText = newInsertText
+        // InsertReplaceEdit must not be messed with.
+    }
 }
 
 

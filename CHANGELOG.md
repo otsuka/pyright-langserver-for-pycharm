@@ -14,6 +14,8 @@ For code changes, see [`CHANGELOG_CODE.md`][_-1].
 ### Fixed
 
 * The active interpreter is now detected correcly on non-PyCharm IDEs.
+* The "autocomplete parentheses" monkeypatch now works correctly
+  with auto-import (and other `textEdit`-based) completions.
 
 
 ## [1.0.0] - 2024-06-23

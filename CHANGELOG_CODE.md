@@ -12,15 +12,20 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Changed
+
+* [The Kover Gradle Plugin][101-1] is updated to 0.8.2. (a408736e)
+
 ### Fixed
 
-* `Project.sdkPath` is now [`.interpreterPath`][101-1]
-  and serves only as a fallback of [`Module.interpreterPath`][101-2].
+* `Project.sdkPath` is now [`.interpreterPath`][101-2]
+  and serves only as a fallback of [`Module.interpreterPath`][101-3].
   (6b9214fe)
 
 
-  [101-1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b9214fe/src/main/kotlin/com/insyncwithfoo/pyrightls/Project.kt
-  [101-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b9214fe/src/main/kotlin/com/insyncwithfoo/pyrightls/Module.kt
+  [101-1]: https://github.com/Kotlin/kotlinx-kover
+  [101-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b9214fe/src/main/kotlin/com/insyncwithfoo/pyrightls/Project.kt
+  [101-3]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/6b9214fe/src/main/kotlin/com/insyncwithfoo/pyrightls/Module.kt
 
 
 ## [1.0.0] - 2024-06-23
