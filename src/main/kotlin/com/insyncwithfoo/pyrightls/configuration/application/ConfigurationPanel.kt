@@ -1,12 +1,11 @@
 package com.insyncwithfoo.pyrightls.configuration.application
 
+import com.insyncwithfoo.pyrightls.configuration.ExecutablePathHintState
 import com.insyncwithfoo.pyrightls.configuration.Hint
-import com.insyncwithfoo.pyrightls.configuration.bindText
-import com.insyncwithfoo.pyrightls.configuration.displayPathHint
 import com.insyncwithfoo.pyrightls.configuration.executablePathResolvingHint
-import com.insyncwithfoo.pyrightls.configuration.onInput
-import com.insyncwithfoo.pyrightls.configuration.prefilledWithRandomPlaceholder
-import com.insyncwithfoo.pyrightls.configuration.secondColumnPathInput
+import com.insyncwithfoo.pyrightls.configuration.makeFlexible
+import com.insyncwithfoo.pyrightls.configuration.reactiveLabel
+import com.insyncwithfoo.pyrightls.configuration.triggerChange
 import com.insyncwithfoo.pyrightls.message
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
@@ -17,7 +16,9 @@ import com.intellij.ui.dsl.builder.Cell
 import com.intellij.ui.dsl.builder.Row
 import com.intellij.ui.dsl.builder.bindItem
 import com.intellij.ui.dsl.builder.bindSelected
+import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.builder.toNonNullableProperty
 import com.intellij.ui.dsl.builder.toNullableProperty
 
 
@@ -30,7 +31,7 @@ private fun Row.makeAlwaysUseGlobalInput(block: Cell<JBCheckBox>.() -> Unit) =
 
 
 private fun Row.makeGlobalExecutableInput(block: Cell<TextFieldWithBrowseButton>.() -> Unit) =
-    secondColumnPathInput().apply(block)
+    textFieldWithBrowseButton().makeFlexible().apply(block)
 
 
 private fun Row.makeUseEditorFontInput(block: Cell<JBCheckBox>.() -> Unit) =
@@ -101,22 +102,26 @@ private fun Row.makeMonkeypatchTrailingQuoteBugInput(block: Cell<JBCheckBox>.() 
 
 @Suppress("DialogTitleCapitalization")
 internal fun configurationPanel(state: Configurations) = panel {
+    val executablePathHintState = ExecutablePathHintState { path ->
+        when {
+            !path.isAbsolute -> relativePathHint()
+            else -> executablePathResolvingHint(path)
+        }
+    }
+    
     row {
         makeAlwaysUseGlobalInput { bindSelected(state::alwaysUseGlobal) }
     }
     
     row(message("configurations.globalExecutable.label")) {
         makeGlobalExecutableInput {
-            onInput(::displayPathHint) { path ->
-                when {
-                    !path.isAbsolute -> relativePathHint()
-                    else -> executablePathResolvingHint(path)
-                }
-            }
-            
-            prefilledWithRandomPlaceholder()
-            bindText(state::globalExecutable)
+            bindText(executablePathHintState.path)
+            bindText(state::globalExecutable.toNonNullableProperty(""))
+            triggerChange()
         }
+    }
+    row("") {
+        reactiveLabel(executablePathHintState.hint)
     }
     
     group(message("configurations.group.tooltips")) {

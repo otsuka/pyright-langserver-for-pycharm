@@ -15,6 +15,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 ### Changed
 
 * [The Kover Gradle Plugin][101-1] is updated to 0.8.2. (a408736e)
+* Path-hints-related logic is revisited to use `PropertyGraph`. (HEAD)
 
 ### Fixed
 

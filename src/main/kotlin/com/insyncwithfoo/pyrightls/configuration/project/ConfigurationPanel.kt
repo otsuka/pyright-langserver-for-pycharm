@@ -1,13 +1,11 @@
 package com.insyncwithfoo.pyrightls.configuration.project
 
+import com.insyncwithfoo.pyrightls.configuration.ExecutablePathHintState
 import com.insyncwithfoo.pyrightls.configuration.Hint
-import com.insyncwithfoo.pyrightls.configuration.asSecondColumnInput
-import com.insyncwithfoo.pyrightls.configuration.bindText
-import com.insyncwithfoo.pyrightls.configuration.displayPathHint
 import com.insyncwithfoo.pyrightls.configuration.executablePathResolvingHint
-import com.insyncwithfoo.pyrightls.configuration.onInput
-import com.insyncwithfoo.pyrightls.configuration.prefilledWithRandomPlaceholder
-import com.insyncwithfoo.pyrightls.configuration.secondColumnPathInput
+import com.insyncwithfoo.pyrightls.configuration.makeFlexible
+import com.insyncwithfoo.pyrightls.configuration.reactiveLabel
+import com.insyncwithfoo.pyrightls.configuration.triggerChange
 import com.insyncwithfoo.pyrightls.message
 import com.insyncwithfoo.pyrightls.path
 import com.insyncwithfoo.pyrightls.resolvedAgainst
@@ -22,6 +20,7 @@ import com.intellij.ui.dsl.builder.bindItem
 import com.intellij.ui.dsl.builder.bindSelected
 import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.builder.toNonNullableProperty
 import com.intellij.ui.dsl.builder.toNullableProperty
 
 
@@ -30,7 +29,7 @@ private fun unresolvablePathHint() =
 
 
 private fun Row.makeProjectExecutableInput(block: Cell<TextFieldWithBrowseButton>.() -> Unit) =
-    secondColumnPathInput().apply(block)
+    textFieldWithBrowseButton().makeFlexible().apply(block)
 
 
 private fun Row.makeAutoSuggestExecutableInput(block: Cell<JBCheckBox>.() -> Unit) =
@@ -50,7 +49,7 @@ private fun Row.makeTargetedFileExtensionsInput(block: Cell<ExpandableTextField>
     val parser = DelimitedFileExtensionList::split
     val joiner = List<FileExtension>::join
     
-    expandableTextField(parser, joiner).asSecondColumnInput().apply(block)
+    expandableTextField(parser, joiner).makeFlexible().apply(block)
 }
 
 
@@ -68,22 +67,26 @@ private fun Row.makeAutoSearchPathsInput(block: Cell<JBCheckBox>.() -> Unit) =
 
 
 internal fun Configurable.configurationPanel(state: Configurations) = panel {
+    val executablePathHintState = ExecutablePathHintState { path ->
+        when {
+            project.path == null && !path.isAbsolute -> unresolvablePathHint()
+            else -> executablePathResolvingHint(path.resolvedAgainst(project.path))
+        }
+    }
+    
     row {
         makeAutoSuggestExecutableInput { bindSelected(state::autoSuggestExecutable) }
     }
     
     row(message("configurations.projectExecutable.label")) {
         makeProjectExecutableInput {
-            onInput(::displayPathHint) { path ->
-                when {
-                    project.path == null && !path.isAbsolute -> unresolvablePathHint()
-                    else -> executablePathResolvingHint(path.resolvedAgainst(project.path))
-                }
-            }
-            
-            prefilledWithRandomPlaceholder()
-            bindText(state::projectExecutable)
+            bindText(executablePathHintState.path)
+            bindText(state::projectExecutable.toNonNullableProperty(""))
+            triggerChange()
         }
+    }
+    row("") {
+        reactiveLabel(executablePathHintState.hint)
     }
     
     @Suppress("DialogTitleCapitalization")
