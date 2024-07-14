@@ -12,6 +12,11 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [1.0.1] - 2024-07-14
+
 ### Changed
 
 * [Kover Gradle Plugin][101-1] is updated to 0.8.2. (a408736e)
@@ -19,7 +24,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [Changelog Gradle Plugin][101-2] is updated to 2.2.1. (22b0f1c0)
 * [IntelliJ Platform Gradle Plugin][101-3] is updated to 2.0.0-beta9.
   (5f1dcd8b)
-* Gradle is updated to 8.9. (HEAD)
+* Gradle is updated to 8.9. (a6c2a66f)
 
 ### Fixed
 
@@ -322,7 +327,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v1.0.0..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v1.0.1..HEAD
+  [1.0.1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v1.0.0..v1.0.1
   [1.0.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.5.0..v1.0.0
   [0.5.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.4.0..v0.5.0
   [0.4.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.3.0..v0.4.0
