@@ -12,7 +12,12 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Added
+
+* Documentation for this plugin now has [its own site][102-1]. (3d2f0d9f)
+
+
+  [102-1]: https://insyncwithfoo.github.io/pyright-langserver-for-pycharm
 
 
 ## [1.0.1] - 2024-07-14
