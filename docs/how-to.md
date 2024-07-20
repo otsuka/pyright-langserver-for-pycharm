@@ -1,6 +1,6 @@
 ## How to install the Pyright executables
 
-Choose one that works for you (or one you like the most):
+Choose one that works for you:
 
 ```shell
 $ pip install pyright
