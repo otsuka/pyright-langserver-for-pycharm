@@ -27,8 +27,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [Kover Gradle Plugin][101-1] is updated to 0.8.2. (a408736e)
 * Path-hints-related logic is revisited to use `PropertyGraph`. (cde35259)
 * [Changelog Gradle Plugin][101-2] is updated to 2.2.1. (22b0f1c0)
-* [IntelliJ Platform Gradle Plugin][101-3] is updated to 2.0.0-beta9.
-  (5f1dcd8b)
+* [IntelliJ Platform Gradle Plugin][101-3] is updated to 2.0.0-rc1.
+  (5f1dcd8b, d019e093, HEAD)
 * Gradle is updated to 8.9. (a6c2a66f)
 
 ### Fixed

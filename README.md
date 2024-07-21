@@ -48,7 +48,7 @@ Add the following line to the <b>Help</b> | <b>Diagnostic Tools</b> |
   [1]: https://github.com/microsoft/pyright
   [2]: https://plugins.jetbrains.com/docs/intellij/language-server-protocol.html
   [3]: https://github.com/InSyncWithFoo/pyright-for-pycharm
-  [4]: https://insyncwithfoo.github.io/pyright-langserver-for-pycharm/configurations#executable
+  [4]: https://insyncwithfoo.github.io/pyright-langserver-for-pycharm/configurations/#executable
 <!-- Plugin description end -->
 
 
