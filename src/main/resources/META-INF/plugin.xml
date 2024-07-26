@@ -67,5 +67,9 @@
 		<postStartupActivity
 			implementation="com.insyncwithfoo.pyrightls.PyrightLSProjectExecutableSuggester"
 		/>
+		
+		<fileIconProvider
+			implementation="com.insyncwithfoo.pyrightls.icons.PyrightConfigFileIconProvider"
+		/>
 	</extensions>
 </idea-plugin>

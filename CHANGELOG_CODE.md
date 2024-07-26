@@ -15,9 +15,16 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 ### Added
 
 * Documentation for this plugin now has [its own site][102-1]. (3d2f0d9f)
+* The [`icons`][102-2] subpackage is added. (HEAD)
 
+### Changed
+
+* [IntelliJ Platform Gradle Plugin][102-3] is updated to 2.0.0-rc1.
+  (d019e093, c1a82370)
 
   [102-1]: https://insyncwithfoo.github.io/pyright-langserver-for-pycharm
+  [102-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/icons
+  [102-3]: https://github.com/JetBrains/intellij-platform-gradle-plugin
 
 
 ## [1.0.1] - 2024-07-14
@@ -27,8 +34,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [Kover Gradle Plugin][101-1] is updated to 0.8.2. (a408736e)
 * Path-hints-related logic is revisited to use `PropertyGraph`. (cde35259)
 * [Changelog Gradle Plugin][101-2] is updated to 2.2.1. (22b0f1c0)
-* [IntelliJ Platform Gradle Plugin][101-3] is updated to 2.0.0-rc1.
-  (5f1dcd8b, d019e093, HEAD)
+* [IntelliJ Platform Gradle Plugin][101-3] is updated to 2.0.0-beta9.
+  (5f1dcd8b)
 * Gradle is updated to 8.9. (a6c2a66f)
 
 ### Fixed
@@ -114,7 +121,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [`PyrightLSDescriptor`][40-1] now logs all configurations on initialization.
   (501b9cea)
 * Diagnostics-related construct, including those newly added for quick fixes,
-  are moved to the [`.diagnostics`][40-2] module. (a95bea0f)
+  are moved to the [`diagnostics`][40-2] subpackage. (a95bea0f)
 
 ### Changed
 
@@ -287,7 +294,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Changed
 
-* The `configuration.common` module is removed
+* The `configuration.common` subpackage is removed
   in favor of [`PyrightLSConfigurable.kt`][3-8]. (a31ced27)
 
 
