@@ -14,17 +14,19 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Added
 
-* Documentation for this plugin now has [its own site][102-1]. (3d2f0d9f)
-* The [`icons`][102-2] subpackage is added. (HEAD)
+* Documentation for this plugin now has [its own site][110-1]. (3d2f0d9f)
+* The [`icons`][110-2] subpackage is added. (e42eba4e)
 
 ### Changed
 
-* [IntelliJ Platform Gradle Plugin][102-3] is updated to 2.0.0-rc1.
-  (d019e093, c1a82370)
+* [IntelliJ Platform Gradle Plugin][110-3] is updated to 2.0.0.
+  (d019e093, c1a82370, HEAD)
+* [Kover Gradle Plugin][110-4] is updated to 0.8.3. (776cb74a)
 
-  [102-1]: https://insyncwithfoo.github.io/pyright-langserver-for-pycharm
-  [102-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/HEAD/src/main/kotlin/com/insyncwithfoo/pyrightls/icons
-  [102-3]: https://github.com/JetBrains/intellij-platform-gradle-plugin
+  [110-1]: https://insyncwithfoo.github.io/pyright-langserver-for-pycharm
+  [110-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/e42eba4e/src/main/kotlin/com/insyncwithfoo/pyrightls/icons
+  [110-3]: https://github.com/JetBrains/intellij-platform-gradle-plugin
+  [110-4]: https://github.com/Kotlin/kotlinx-koverhttps://github.com/Kotlin/kotlinx-kover
 
 
 ## [1.0.1] - 2024-07-14
