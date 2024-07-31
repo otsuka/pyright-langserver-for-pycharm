@@ -68,8 +68,20 @@
 			implementation="com.insyncwithfoo.pyrightls.PyrightLSProjectExecutableSuggester"
 		/>
 		
+		<postStartupActivity
+			order="first"
+			implementation="com.insyncwithfoo.pyrightls.configuration.converter.ConfigurationsConverter"
+		/>
+		
 		<fileIconProvider
 			implementation="com.insyncwithfoo.pyrightls.icons.PyrightConfigFileIconProvider"
 		/>
 	</extensions>
+	
+	<applicationListeners>
+		<listener
+			topic="com.intellij.ide.AppLifecycleListener"
+			class="com.insyncwithfoo.pyrightls.configuration.converter.ConfigurationsConverter"
+		/>
+	</applicationListeners>
 </idea-plugin>
