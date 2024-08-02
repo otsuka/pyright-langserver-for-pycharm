@@ -16,7 +16,7 @@ since 2023.2. This means that PyCharm Community users cannot use it.
 ## Usage
 
 Go to <b>Settings</b> | <b>Tools</b> |
-<b>Pyright LS (Global)</b> / <b>Pyright LS (Project)</b>
+<b>Pyright LS</b> | <b>Global</b> / <b>Project</b>
 and set the path to [your Pyright language server executable][4].
 
 === "Global"

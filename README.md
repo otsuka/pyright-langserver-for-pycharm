@@ -22,7 +22,7 @@ install [the <i>Pyright</i> plugin][3] instead.
 ## Usage
 
 Go to <b>Settings</b> | <b>Tools</b> |
-<b>Pyright LS (Global)</b> / <b>Pyright LS (Project)</b> and
+<b>Pyright LS</b> | <b>Global</b> / <b>Project</b> and
 set the path to your Pyright language server executable.
 It is typically named `pyright-langserver`/`pyright-python-langserver`.
 
