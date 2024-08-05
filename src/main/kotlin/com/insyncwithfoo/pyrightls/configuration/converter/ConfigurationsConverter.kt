@@ -47,7 +47,7 @@ internal class ConfigurationsConverter : AppLifecycleListener, ProjectActivity {
         LOGGER.info("Migrating service names. Old service state: [${oldService.state}]")
         
         newService.loadState(oldService.state!!.copy())
-        oldService.loadState(C::class.constructors.first().call())
+        // oldService.loadState(C::class.constructors.first().call())
     }
     
     companion object {
