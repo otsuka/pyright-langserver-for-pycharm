@@ -11,6 +11,11 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+<i>This section is currently empty.</i>
+
+
+## [1.1.0] - 2024-08-13
+
 ### Added
 
 * Documentation for this plugin now has [its own site][110-1]. (3d2f0d9f)
@@ -18,14 +23,21 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ### Changed
 
-* [IntelliJ Platform Gradle Plugin][110-3] is updated to 2.0.0.
-  (d019e093, c1a82370, HEAD)
+* [IntelliJ Platform Gradle Plugin][110-3] is updated to 2.0.1.
+  (d019e093, c1a82370, b0818ee9, 0e7b585a)
 * [Kover Gradle Plugin][110-4] is updated to 0.8.3. (776cb74a)
+* [@gradle/actions][110-5] are updated to 4.0.0. (784a4515)
+* [@JetBrains/qodana-action][110-6] is updated to 2024.1.9. (b42717da)
+* [Kotlin JVM plugin][110-7] is updated to 2.0.10. (4b95745d)
+
 
   [110-1]: https://insyncwithfoo.github.io/pyright-langserver-for-pycharm
   [110-2]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/blob/e42eba4e/src/main/kotlin/com/insyncwithfoo/pyrightls/icons
   [110-3]: https://github.com/JetBrains/intellij-platform-gradle-plugin
   [110-4]: https://github.com/Kotlin/kotlinx-koverhttps://github.com/Kotlin/kotlinx-kover
+  [110-5]: https://github.com/gradle/actions
+  [110-6]: https://github.com/JetBrains/qodana-action
+  [110-7]: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
 
 
 ## [1.0.1] - 2024-07-14
@@ -96,7 +108,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 * [Kover Gradle Plugin][50-1] is updated to 0.8.0. (8d034a20)
 * [Qodana Gradle Plugin][50-2] and its corresponding action
-  [@JetBrains/qodana-action][50-3] are updated to 2024.1.5.
+  [@JetBrains/qodana-action][50-3] is updated to 2024.1.5.
   (85c78a93)
 * Another conditional was added to
   [`CompletionSupport.createLookupElement`][50-4]
@@ -340,7 +352,8 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * Project initialized.
 
 
-  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v1.0.1..HEAD
+  [Unreleased]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v1.1.0..HEAD
+  [1.1.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v1.0.1..v1.1.0
   [1.0.1]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v1.0.0..v1.0.1
   [1.0.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.5.0..v1.0.0
   [0.5.0]: https://github.com/InSyncWithFoo/pyright-langserver-for-pycharm/compare/v0.4.0..v0.5.0
