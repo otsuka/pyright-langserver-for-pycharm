@@ -11,7 +11,9 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
-<i>This section is currently empty.</i>
+### Changed
+
+* Gradle is updated to 8.10. (HEAD)
 
 
 ## [1.1.0] - 2024-08-13
@@ -26,7 +28,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 * [IntelliJ Platform Gradle Plugin][110-3] is updated to 2.0.1.
   (d019e093, c1a82370, b0818ee9, 0e7b585a)
 * [Kover Gradle Plugin][110-4] is updated to 0.8.3. (776cb74a)
-* [@gradle/actions][110-5] are updated to 4.0.0. (784a4515)
+* [@gradle/actions][110-5] is updated to 4.0.0. (784a4515)
 * [@JetBrains/qodana-action][110-6] is updated to 2024.1.9. (b42717da)
 * [Kotlin JVM plugin][110-7] is updated to 2.0.10. (4b95745d)
 
@@ -108,7 +110,7 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 * [Kover Gradle Plugin][50-1] is updated to 0.8.0. (8d034a20)
 * [Qodana Gradle Plugin][50-2] and its corresponding action
-  [@JetBrains/qodana-action][50-3] is updated to 2024.1.5.
+  [@JetBrains/qodana-action][50-3] are updated to 2024.1.5.
   (85c78a93)
 * Another conditional was added to
   [`CompletionSupport.createLookupElement`][50-4]
