@@ -419,6 +419,16 @@ This corresponds to the `python.analysis.logLevel` setting.
 Default: <i>Information</i>
 
 
+### Locale
+
+Modify this option to make the language server
+emit messages in different languages.
+
+This corresponds to the `LC_ALL` environment variable.
+
+Default: <i>Default</i> (no value set)
+
+
 ### Add common search paths
 
 Uncheck this option to tell the language server not to add

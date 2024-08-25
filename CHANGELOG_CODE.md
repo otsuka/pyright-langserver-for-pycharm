@@ -11,9 +11,17 @@ For user-facing changes, see [`CHANGELOG.md`][_-1].
 
 ## [Unreleased]
 
+### Added
+
+* Global option "Locale" is added. (5aa7aaec, HEAD)
+
 ### Changed
 
-* Gradle is updated to 8.10. (HEAD)
+* Gradle is updated to 8.10. (226568e1)
+* [Kotlin JVM plugin][120-1] is updated to 2.0.10. (227ef0c6)
+
+
+  [120-1]: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
 
 
 ## [1.1.0] - 2024-08-13

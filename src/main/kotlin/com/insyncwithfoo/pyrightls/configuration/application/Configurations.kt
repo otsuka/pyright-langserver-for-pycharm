@@ -12,6 +12,7 @@ internal enum class LogLevel(val label: String) {
 }
 
 
+// https://github.com/microsoft/pyright/blob/acc52c7420/packages/pyright-internal/src/localization/localize.ts#L12-L26
 internal enum class Locale(private val value: String) {
     DEFAULT(message("configurations.locale.default")),
     CS("cs"),
