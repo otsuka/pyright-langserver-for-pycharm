@@ -28,13 +28,21 @@ private fun HtmlChunk.Element.withFont(font: String?) =
     this.runIf(font != null) { style("font-family: '$font'") }
 
 
-private fun String.toPreformattedBlock(font: String?) =
-    HtmlChunk.div().withFont(font).child(HtmlChunk.text(this))
+private val QUOTED_TEXT_REGEX = "\"([^\"]+)\"".toRegex()
+
+
+private fun String.replaceQuotesWithCode(): String =
+    QUOTED_TEXT_REGEX.replace(this) { "<code>${it.groupValues[1]}</code>" }
+
+
+private fun String.toPreformattedBlock(font: String?): HtmlChunk.Element {
+    return HtmlChunk.div().withFont(font).child(HtmlChunk.raw(replaceQuotesWithCode()))
+}
 
 
 private fun String.toCodeSuffix(font: String? = null, href: String? = null): String {
     val parenthesizedPortion = href?.let { HtmlChunk.link(it, this).withFont(font) } ?: this
-    return " ($parenthesizedPortion)"
+    return "<br>($parenthesizedPortion)"
 }
 
 
