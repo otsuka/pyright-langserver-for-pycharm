@@ -98,7 +98,7 @@ internal class DiagnosticsSupport(private val project: Project) : LspDiagnostics
         val font = EditorUtil.getEditorFont().name
             ?.takeIf { configurations.useEditorFont }
         val tooltip = diagnostic.message
-            .letIf(configurations.addTooltipPrefix) { "Pyright: $it" }
+            .letIf(configurations.addTooltipPrefix) { "<small>Pyright:</small><br>$it" }
         
         val codeSuffix = diagnostic.codeAsString?.toCodeSuffix(font, descriptionHref).orEmpty()
         
