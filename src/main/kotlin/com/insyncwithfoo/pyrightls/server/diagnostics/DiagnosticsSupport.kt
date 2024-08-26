@@ -31,12 +31,42 @@ private fun HtmlChunk.Element.withFont(font: String?) =
 private val QUOTED_TEXT_REGEX = "\"([^\"]+)\"".toRegex()
 
 
-private fun String.replaceQuotesWithCode(): String =
-    QUOTED_TEXT_REGEX.replace(this) { "<code>${it.groupValues[1]}</code>" }
+private fun String.replaceQuotesWithCode(): String {
+    val formattedText = formatPyrightOutputAsTree(this)
+    return QUOTED_TEXT_REGEX.replace(formattedText) { "<code>${it.groupValues[1]}</code>" }
+}
 
 
-private fun String.toPreformattedBlock(font: String?): HtmlChunk.Element {
-    return HtmlChunk.div().withFont(font).child(HtmlChunk.raw(replaceQuotesWithCode()))
+fun formatPyrightOutputAsTree(outputMsg: String): String {
+    val lines = outputMsg.lines()
+    val indentedLines = mutableListOf<String>()
+    var indentLevel = 0
+    
+    for (line in lines) {
+        if (line.trim().isEmpty()) {
+            indentedLines.add(line)
+            continue
+        }
+        
+        if (!line.startsWith(" ")) {
+            indentLevel = 0
+        }
+        val trimmedLine = line.trim()
+        if (indentLevel > 0) {
+            val prefix = "&nbsp;".repeat((indentLevel - 1) * 4) + "&nbsp;└─ "
+            indentedLines.add(prefix + trimmedLine)
+        } else {
+            indentedLines.add(trimmedLine)
+        }
+        indentLevel++
+    }
+    return indentedLines.joinToString("\n")
+}
+
+
+private fun String.toPreformattedBlock(font: String?, replaceQuotes: Boolean): HtmlChunk.Element {
+    val elem = if (replaceQuotes) HtmlChunk.raw(replaceQuotesWithCode()) else HtmlChunk.text(this)
+    return HtmlChunk.div().withFont(font).child(elem)
 }
 
 
@@ -102,7 +132,7 @@ internal class DiagnosticsSupport(private val project: Project) : LspDiagnostics
         
         val codeSuffix = diagnostic.codeAsString?.toCodeSuffix(font, descriptionHref).orEmpty()
         
-        return tooltip.toPreformattedBlock(font).addRaw(codeSuffix).toString()
+        return tooltip.toPreformattedBlock(font, true).addRaw(codeSuffix).toString()
     }
     
     override fun createAnnotation(
