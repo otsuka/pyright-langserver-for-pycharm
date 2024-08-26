@@ -42,7 +42,7 @@ private fun String.toPreformattedBlock(font: String?): HtmlChunk.Element {
 
 private fun String.toCodeSuffix(font: String? = null, href: String? = null): String {
     val parenthesizedPortion = href?.let { HtmlChunk.link(it, this).withFont(font) } ?: this
-    return "<br>($parenthesizedPortion)"
+    return " <i>($parenthesizedPortion)</i>"
 }
 
 
