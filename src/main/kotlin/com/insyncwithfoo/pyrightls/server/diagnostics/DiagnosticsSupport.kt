@@ -32,12 +32,11 @@ private val QUOTED_TEXT_REGEX = "\"([^\"]+)\"".toRegex()
 
 
 private fun String.replaceQuotesWithCode(): String {
-    val formattedText = formatPyrightOutputAsTree(this)
-    return QUOTED_TEXT_REGEX.replace(formattedText) { "<code>${it.groupValues[1]}</code>" }
+    return QUOTED_TEXT_REGEX.replace(this) { "<code>${it.groupValues[1]}</code>" }
 }
 
 
-fun formatPyrightOutputAsTree(outputMsg: String): String {
+private fun formatPyrightOutputAsTree(outputMsg: String): String {
     val lines = outputMsg.lines()
     val indentedLines = mutableListOf<String>()
     var indentLevel = 0
@@ -53,8 +52,8 @@ fun formatPyrightOutputAsTree(outputMsg: String): String {
         }
         val trimmedLine = line.trim()
         if (indentLevel > 0) {
-            val prefix = "&nbsp;".repeat((indentLevel - 1) * 4) + "&nbsp;└─ "
-            indentedLines.add(prefix + trimmedLine)
+            val prefix = "  ".repeat((indentLevel - 1) * 2) + " └─ "
+            indentedLines.add("<span style='font-family:monospace;'>${prefix}</span>${trimmedLine}")
         } else {
             indentedLines.add(trimmedLine)
         }
@@ -64,15 +63,20 @@ fun formatPyrightOutputAsTree(outputMsg: String): String {
 }
 
 
-private fun String.toPreformattedBlock(font: String?, replaceQuotes: Boolean): HtmlChunk.Element {
-    val elem = if (replaceQuotes) HtmlChunk.raw(replaceQuotesWithCode()) else HtmlChunk.text(this)
+private fun String.toPreformattedBlock(font: String?, prettyOutput: Boolean): HtmlChunk.Element {
+    val elem =
+        if (prettyOutput) {
+            HtmlChunk.raw(formatPyrightOutputAsTree(this).replaceQuotesWithCode())
+        } else {
+            HtmlChunk.text(this)
+        }
     return HtmlChunk.div().withFont(font).child(elem)
 }
 
 
-private fun String.toCodeSuffix(font: String? = null, href: String? = null): String {
+private fun String.toCodeSuffix(font: String? = null, href: String? = null, prettyOutput: Boolean = false): String {
     val parenthesizedPortion = href?.let { HtmlChunk.link(it, this).withFont(font) } ?: this
-    return " <i>($parenthesizedPortion)</i>"
+    return if (prettyOutput) " <i>($parenthesizedPortion)</i>" else " ($parenthesizedPortion)"
 }
 
 
@@ -127,12 +131,18 @@ internal class DiagnosticsSupport(private val project: Project) : LspDiagnostics
             ?.takeIf { configurations.linkErrorCodes }
         val font = EditorUtil.getEditorFont().name
             ?.takeIf { configurations.useEditorFont }
-        val tooltip = diagnostic.message
-            .letIf(configurations.addTooltipPrefix) { "<small>Pyright:</small><br>$it" }
         
-        val codeSuffix = diagnostic.codeAsString?.toCodeSuffix(font, descriptionHref).orEmpty()
+        val tooltip = diagnostic.message.let {
+            if (configurations.addTooltipPrefix) {
+                val prefix = if (configurations.prettyOutput) "<small>Pyright:</small><br>" else "Pyright: "
+                prefix + it
+            } else it
+        }
         
-        return tooltip.toPreformattedBlock(font, true).addRaw(codeSuffix).toString()
+        val codeSuffix =
+            diagnostic.codeAsString?.toCodeSuffix(font, descriptionHref, configurations.prettyOutput).orEmpty()
+        
+        return tooltip.toPreformattedBlock(font, configurations.prettyOutput).addRaw(codeSuffix).toString()
     }
     
     override fun createAnnotation(
