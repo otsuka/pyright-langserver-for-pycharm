@@ -34,6 +34,9 @@ private fun Row.makeGlobalExecutableInput(block: Cell<TextFieldWithBrowseButton>
     textFieldWithBrowseButton().makeFlexible().apply(block)
 
 
+private fun Row.makePrettyOutputInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.prettyOutput.label")).apply(block)
+
 private fun Row.makeUseEditorFontInput(block: Cell<JBCheckBox>.() -> Unit) =
     checkBox(message("configurations.useEditorFont.label")).apply(block)
 
@@ -142,6 +145,9 @@ internal fun configurationPanel(state: Configurations) = panel {
         }
         row {
             makeLinkErrorCodesInput { bindSelected(state::linkErrorCodes) }
+        }
+        row {
+            makePrettyOutputInput { bindSelected(state::prettyOutput)}
         }
         row(message("configurations.locale.label")) {
             makeLocaleInput { bindItem(state::locale.toNullableProperty()) }

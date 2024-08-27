@@ -31,6 +31,7 @@ internal infix fun ApplicationConfigurations.mergeWith(other: ProjectConfigurati
         monkeypatchAutoImportDetails = this.monkeypatchAutoImportDetails,
         monkeypatchTrailingQuoteBug = this.monkeypatchTrailingQuoteBug,
         locale = this.locale,
+        prettyOutput = this.prettyOutput,
         
         projectExecutable = other.projectExecutable,
         autoSuggestExecutable = other.autoSuggestExecutable,
@@ -59,6 +60,7 @@ internal data class AllConfigurations(
     val monkeypatchAutoImportDetails: Boolean,
     val monkeypatchTrailingQuoteBug: Boolean,
     val locale: Locale,
+    val prettyOutput: Boolean,
     
     val projectExecutable: @SystemDependent String?,
     val autoSuggestExecutable: Boolean,

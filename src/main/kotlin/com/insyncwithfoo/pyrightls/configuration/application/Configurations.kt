@@ -52,4 +52,5 @@ internal class Configurations : BaseState() {
     var monkeypatchAutoImportDetails by property(true)
     var monkeypatchTrailingQuoteBug by property(true)
     var locale by enum(Locale.DEFAULT)
+    var prettyOutput by property(true)
 }
