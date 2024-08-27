@@ -28,11 +28,49 @@ private fun HtmlChunk.Element.withFont(font: String?) =
     this.runIf(font != null) { style("font-family: '$font'") }
 
 
-private val QUOTED_TEXT_REGEX = "\"([^\"]+)\"".toRegex()
+private fun replaceQuotesWithCode(message: String): String {
+    var isQuoted = false
+    val sb = StringBuilder()
+    val length = message.length
+    
+    for (i in message.indices) {
+        val char = message[i]
+        if (char == '"') {
+            val nextChar = if (i < length - 1) message[i + 1].toString() else ""
+            val prevChar = if (i > 0) message[i - 1].toString() else ""
+            when {
+                isClosingQuote(isQuoted, nextChar) -> {
+                    isQuoted = false
+                    sb.append("</code>")
+                }
+                
+                isOpeningQuote(isQuoted, prevChar) -> {
+                    isQuoted = true
+                    sb.append("<code>")
+                }
+                
+                isQuoted -> {
+                    sb.append(char)
+                }
+                
+                else -> {
+                    // Fallback for unsupported format message
+                    return message
+                }
+            }
+        } else {
+            sb.append(char)
+        }
+    }
+    return sb.toString()
+}
 
+private fun isOpeningQuote(isQuoted: Boolean, prevChar: String): Boolean {
+    return !isQuoted && (prevChar.isEmpty() || prevChar == " " || prevChar == " ")
+}
 
-private fun String.replaceQuotesWithCode(): String {
-    return QUOTED_TEXT_REGEX.replace(this) { "<code>${it.groupValues[1]}</code>" }
+private fun isClosingQuote(isQuoted: Boolean, nextChar: String): Boolean {
+    return isQuoted && (nextChar.isEmpty() || nextChar == " " || nextChar == "\n")
 }
 
 
@@ -66,7 +104,7 @@ private fun formatPyrightOutputAsTree(outputMsg: String): String {
 private fun String.toPreformattedBlock(font: String?, prettyOutput: Boolean): HtmlChunk.Element {
     val elem =
         if (prettyOutput) {
-            HtmlChunk.raw(formatPyrightOutputAsTree(this).replaceQuotesWithCode())
+            HtmlChunk.raw(formatPyrightOutputAsTree(replaceQuotesWithCode(this)))
         } else {
             HtmlChunk.text(this)
         }
